@@ -1,0 +1,49 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a class="logo" href="/">
+      <img src="assets/images/logo.png" alt="media alacarte" class="logo-img">
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="nav">
+      @for (link of navLinks; track link.path) {
+        <a class="nav-link"
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: link.path === '/' }">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <!-- Login (desktop) -->
+    <a class="login-btn" routerLink="/login">Login</a>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" [class.open]="isMenuOpen"
+            (click)="toggleMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile dropdown -->
+  @if (isMenuOpen) {
+    <nav class="mobile-nav" @mobileMenu>
+      @for (link of navLinks; track link.path) {
+        <a class="mobile-link"
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+           (click)="closeMenu()">
+          {{ link.label }}
+        </a>
+      }
+      <a class="login-btn mobile-login" routerLink="/login" (click)="closeMenu()">Login</a>
+    </nav>
+  }
+</header>
