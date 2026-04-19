@@ -2,28 +2,41 @@
   <div class="header-inner">
 
     <!-- Logo -->
-    <a class="logo" href="/">
-      <img src="assets/images/logo.png" alt="media alacarte" class="logo-img">
+    <a class="logo" routerLink="/">
+      <img
+        src="assets/images/logo.png"
+        alt="media alacarte"
+        class="logo-img"
+      />
     </a>
 
-    <!-- Desktop nav -->
+    <!-- Desktop Navigation -->
     <nav class="nav">
       @for (link of navLinks; track link.path) {
-        <a class="nav-link"
-           [routerLink]="link.path"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: link.path === '/' }">
+        <a
+          class="nav-link"
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        >
           {{ link.label }}
         </a>
       }
     </nav>
 
-    <!-- Login (desktop) -->
-    <a class="login-btn" routerLink="/login">Login</a>
+    <!-- Desktop Login -->
+    <a class="login-btn" routerLink="/login">
+      Login
+    </a>
 
-    <!-- Hamburger (mobile) -->
-    <button class="hamburger" [class.open]="isMenuOpen"
-            (click)="toggleMenu()" aria-label="Toggle menu">
+    <!-- Hamburger (Mobile) -->
+    <button
+      class="hamburger"
+      [class.open]="isMenuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu"
+      aria-expanded="{{ isMenuOpen }}"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -31,19 +44,28 @@
 
   </div>
 
-  <!-- Mobile dropdown -->
-  @if (isMenuOpen) {
-    <nav class="mobile-nav" @mobileMenu>
-      @for (link of navLinks; track link.path) {
-        <a class="mobile-link"
-           [routerLink]="link.path"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-           (click)="closeMenu()">
-          {{ link.label }}
-        </a>
-      }
-      <a class="login-btn mobile-login" routerLink="/login" (click)="closeMenu()">Login</a>
-    </nav>
-  }
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" [class.open]="isMenuOpen">
+
+    @for (link of navLinks; track link.path) {
+      <a
+        class="mobile-link"
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        (click)="closeMenu()"
+      >
+        {{ link.label }}
+      </a>
+    }
+
+    <a
+      class="login-btn mobile-login"
+      routerLink="/login"
+      (click)="closeMenu()"
+    >
+      Login
+    </a>
+
+  </nav>
 </header>

@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,ts}'],
+  content: [
+    './src/**/*.html',
+    './src/**/*.ts',
+  ],
   theme: {
     extend: {
       colors: {
@@ -9,49 +12,38 @@ module.exports = {
           light: '#ff6b5b',
         },
         surface: '#0d0d0f',
-        muted: '#9898aa',
+        surfaceAlt: '#141418',
         text: '#e8e8f0',
+        muted: '#9898aa',
+        border: 'rgba(255,255,255,0.08)',
       },
       fontFamily: {
         sans: ['Work Sans', 'sans-serif'],
       },
-      keyframes: {
-        headerDrop: {
-          from: { transform: 'translateY(-100%)', opacity: '0' },
-          to:   { transform: 'translateY(0)',     opacity: '1' },
-        },
-        logoIn: {
-          from: { opacity: '0', transform: 'translateX(-12px)' },
-          to:   { opacity: '1', transform: 'translateX(0)' },
-        },
-        navLinkIn: {
-          from: { opacity: '0', transform: 'translateY(-8px)' },
-          to:   { opacity: '1', transform: 'translateY(0)' },
-        },
-        loginIn: {
-          from: { opacity: '0', transform: 'scale(0.82)' },
-          to:   { opacity: '1', transform: 'scale(1)' },
-        },
-        fadeUp: {
-          from: { opacity: '0', transform: 'translateY(24px)' },
-          to:   { opacity: '1', transform: 'translateY(0)' },
-        },
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255,45,85,0.4)' },
-          '50%':      { boxShadow: '0 0 0 8px rgba(255,45,85,0)' },
-        },
+      fontSize: {
+        xs:  '0.75rem',
+        sm:  '0.875rem',
+        base:'0.95rem',
+        lg:  '1.125rem',
+        xl:  '1.25rem',
       },
-      animation: {
-        'header-drop':  'headerDrop 0.6s cubic-bezier(0.22,1,0.36,1) both',
-        'logo-in':      'logoIn 0.55s 0.05s cubic-bezier(0.22,1,0.36,1) both',
-        'nav-link-in':  'navLinkIn 0.5s cubic-bezier(0.22,1,0.36,1) both',
-        'login-in':     'loginIn 0.55s 0.38s cubic-bezier(0.34,1.56,0.64,1) both',
-        'fade-up':      'fadeUp 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) both',
-        'pulse-glow':   'pulseGlow 2s ease-in-out infinite',
+      spacing: {
+        'xs': '0.25rem',
+        'sm': '0.5rem',
+        'md': '1rem',
+        'lg': '1.5rem',
+        'xl': '2rem',
       },
-      transitionTimingFunction: {
-        spring:        'cubic-bezier(0.22, 1, 0.36, 1)',
-        'spring-bounce': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+      borderRadius: {
+        sm: '6px',
+        md: '10px',
+        lg: '16px',
+        pill: '999px',
+      },
+      boxShadow: {
+        soft: '0 4px 20px rgba(0,0,0,0.25)',
+        glow: '0 6px 20px rgba(255,45,85,0.35)',
+        glass: '0 8px 30px rgba(0,0,0,0.4)',
       },
       maxWidth: {
         '8xl': '1400px',
