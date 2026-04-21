@@ -25,9 +25,10 @@
     </nav>
 
     <!-- Desktop Login -->
-    <a class="login-btn" routerLink="/login">
+   
+     <app-button variant="primary" customClass="login-btn" (click)="closeMenu()">
       Login
-    </a>
+    </app-button>
 
     <!-- Hamburger (Mobile) -->
     <button
@@ -59,13 +60,9 @@
       </a>
     }
 
-    <a
-      class="login-btn mobile-login"
-      routerLink="/login"
-      (click)="closeMenu()"
-    >
+    <app-button variant="primary" customClass="login-btn mobile-login" (click)="closeMenu()">
       Login
-    </a>
+    </app-button>
 
   </nav>
 </header>

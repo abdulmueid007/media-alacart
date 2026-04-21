@@ -1,0 +1,9 @@
+<button
+  class="btn"
+  [ngClass]="[
+    customClass,
+    variant ? 'btn--' + variant : ''
+  ]"
+>
+  <ng-content />
+</button>

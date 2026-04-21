@@ -1,11 +1,9 @@
-:host {
-  display: block;
-}
+:host { display: block; }
 
-/* ── Section ───────────────────────── */
+/* ── Section ──────────────────────────────── */
 .hero {
   position: relative;
-  padding: 5rem 1.5rem;
+  padding: 5rem 1.5rem 3rem;
   background: #050507;
 }
 
@@ -44,7 +42,7 @@
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .tagline {
@@ -54,114 +52,105 @@
   letter-spacing: 0.01em;
 }
 
-/* ── Background glow ───────────────── */
+/* ── Corner blob decorations ──────────────── */
 .hero-bg {
   position: absolute;
   inset: 0;
- 
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* ── Container ─────────────────────── */
+.hero-bg::before,
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  filter: blur(70px);
+  border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
+}
+
+.hero-bg::before {
+  width: 400px;
+  height: 400px;
+  top: -130px;
+  left: -130px;
+  background: radial-gradient(ellipse,
+    rgba(0, 125, 135, 0.42) 0%,
+    rgba(0, 60, 80, 0.18) 55%,
+    transparent 75%
+  );
+}
+
+.hero-bg::after {
+  width: 360px;
+  height: 360px;
+  top: -110px;
+  right: -110px;
+  background: radial-gradient(ellipse,
+    rgba(0, 105, 120, 0.38) 0%,
+    rgba(0, 50, 75, 0.15) 55%,
+    transparent 75%
+  );
+  border-radius: 60% 40% 30% 70% / 40% 60% 50% 50%;
+}
+
+/* ── Container ────────────────────────────── */
 .hero-container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-/* ── Image Card ───────────────────── */
+/* CTA button — hangs above the top-left corner of the card */
+.cta-anchor {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 3;
+}
+
+/* Image card */
 .hero-card {
   position: relative;
-  border-radius: 28px;
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
 }
 
-/* Image */
-.hero-card img {
+.hero-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 28px;
 }
 
-/* ── Top CTA (Start your journey) ─── */
 .hero-cta {
   position: absolute;
   top: 0;
   left: 10px;
-
-  border-radius: 50px;
-
-  font-weight: 600;
-  font-size: 18px;
-
-  color: white;
-  background: linear-gradient(135deg, #ff2d55, #ff6e50);
-
-  z-index: 2;
-  box-shadow: 0 10px 30px rgba(255, 45, 85, 0.35);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  align-items: center;
   width: 34%;
   height: 14%;
   justify-content: center;
 }
 
-.hero-cta:hover {
-  transform:scale(1.02);
-  box-shadow: 0 14px 40px rgba(255, 45, 85, 0.5);
-}
-
-/* ── Bottom Learn More ─────────────── */
 .hero-learn {
   position: absolute;
   bottom: 0;
   right: 6%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  padding: 0.6rem 1.6rem;
-  border-radius: 999px;
-
-  color: #fff;
-  font-weight: 500;
-
-  background: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(255, 45, 85, 0.6);
-
-  backdrop-filter: blur(10px);
-
-  z-index: 2;
-
-  transition: all 0.25s ease;
   width: 18%; 
   height: 10%;
 }
 
-.hero-learn:hover {
-  background: #ff2d55;
-  border-color: #ff2d55;
-}
-
-/* icon */
-.hero-learn .icon {
-  font-size: 0.75rem;
-}
-
-/* ── Responsive ───────────────────── */
+/* ── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
   .hero {
-    padding: 5rem 1rem;
+            padding: 5rem 1rem;
   }
-
-  .hero-cta {
+.hero-cta {
     font-size: .5rem;
-    width: 33%;
-    height: 14%;
+    width: 32%;
+    height: 12%;
   }
 
   .hero-learn {

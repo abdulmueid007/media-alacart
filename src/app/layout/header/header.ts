@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AppButton } from '../../shared/ui/button/button';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, AppButton],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })

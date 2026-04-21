@@ -69,10 +69,10 @@
 
 .nav-link {
   position: relative;
-  margin: 6px 14px;
-  padding: 6px 10px;
+  margin: .5rem;
+  padding: .5rem;
 
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--color-muted);
   text-decoration: none;
   border-radius: 6px;
@@ -110,36 +110,10 @@
 }
 
 /* ── Login Button ───────────────────────────── */
-.login-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
+::ng-deep .login-btn {
   padding: 0.6rem 2.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-
-  border-radius: 999px;
-  text-decoration: none;
-
-  background: linear-gradient(
-    135deg,
-    var(--color-brand),
-    var(--color-brand-light)
-  );
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.login-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 45, 85, 0.4);
-}
-
-.login-btn:active {
-  transform: translateY(0);
-}
 
 /* ── Hamburger ─────────────────────────────── */
 .hamburger {
@@ -244,8 +218,16 @@
   color: var(--color-brand);
 }
 
-.mobile-login {
+::ng-deep .mobile-login {
   margin-top: 0.75rem;
+}
+
+@media (max-width: 880px) {
+  .nav-link{
+    padding: 4px;
+    margin: 4px;
+    font-size: .8rem;
+  }
 }
 
 /* ── Responsive ───────────────────────────── */
@@ -254,8 +236,8 @@
     display: none;
   }
 
-  .login-btn:not(.mobile-login) {
-    display: none;
+  ::ng-deep .login-btn:not(.mobile-login) {
+    display: none !important;
   }
 
   .hamburger {

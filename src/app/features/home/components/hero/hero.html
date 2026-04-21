@@ -1,7 +1,7 @@
 <section class="hero">
 
-  <!-- Background glow -->
-  <div class="hero-bg"></div>
+  <!-- Corner blobs -->
+  <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-container">
 
@@ -12,23 +12,31 @@
     <p class="tagline">Smarter Media Buying</p>
   </div>
 
-    <!-- Image Card -->
-    <div class="hero-card">
+    <!-- Visual area -->
+    <div class="hero-visual">
 
-      <img src="assets/images/hero-banner.png" alt="hero" />
+      <!-- CTA overlaps the top-left of the card -->
+      
 
-      <!-- Top CTA (floating) -->
-      <a class="hero-cta">
-        Start your journey!
-      </a>
+      <!-- Image card (overflow:hidden clips the corners) -->
+      <div class="hero-card">
+        <img
+          src="assets/images/hero-banner.png"
+          alt="Business professionals collaborating"
+          class="hero-img"
+        />
+          <app-button variant="primary" size="lg" link="/demo" class="hero-cta">
+            Start your journey!
+          </app-button>
 
-      <!-- Bottom CTA -->
-      <a class="hero-learn">
-        <span class="icon">▶</span>
-        Learn More
-      </a>
+        <!-- Learn More overlaps the bottom-right corner -->
+        <app-button variant="dark-glass" size="md" link="/platform" class="hero-learn">
+          <span class="icon">▶</span>
+          Learn More
+        </app-button>
+      </div>
 
     </div>
-
   </div>
+
 </section>
