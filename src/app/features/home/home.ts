@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Hero } from './components/hero/hero';
-import { CrossBanner } from './components/comming-soon-banner/cross-banner';
+import { CrossBanner } from '../../shared/sections/comming-soon-banner/cross-banner';
+import { Hero } from '../../shared/sections/hero/hero';
 
 @Component({
   selector: 'app-home',

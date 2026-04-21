@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AppButton } from '../../shared/ui/button/button';
+import { AppButton } from '../../../shared/ui/button/button';
 
 @Component({
   selector: 'app-header',
