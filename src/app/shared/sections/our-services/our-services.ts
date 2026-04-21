@@ -19,17 +19,17 @@ export class OurServices implements OnInit {
     this.services = [
       {
         title: 'Advertisers',
-        description: 'Run & optimize ads across multiple platforms effortlessly.',
+        description: 'Run & Optimize ads across multiple platforms effortlessly.',
         image: 'assets/images/service-1.png'
       },
       {
         title: 'Agencies',
-        description: 'Run & optimize ads across multiple platforms effortlessly.',
+        description: 'Run & Optimize ads across multiple platforms effortlessly.',
         image: 'assets/images/service-2.png',
       },
       {
         title: 'Media Owners',
-        description: 'Run & optimize ads across multiple platforms effortlessly.',
+        description: 'Run & Optimize ads across multiple platforms effortlessly.',
         image: 'assets/images/service-3.png',
       }
     ];
