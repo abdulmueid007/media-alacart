@@ -25,7 +25,7 @@
     @apply antialiased;
     background-color: var(--color-surface);
     font-family: 'Work Sans', sans-serif;
-    min-height: 100%; 
+    min-height: 100%;
   }
 
   /* Undo Preflight's link reset */
@@ -83,6 +83,5 @@
 }
 
 main {
-  background: #050507;
   overflow: hidden;
 }
