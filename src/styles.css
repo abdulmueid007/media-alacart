@@ -83,6 +83,6 @@
 }
 
 main {
-      background: #050507;
-      overflow-x: hidden;
+  background: #050507;
+  overflow: hidden;
 }

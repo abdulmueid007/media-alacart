@@ -67,11 +67,11 @@
   }
 
 .banner-1 {
-  transform: skewY(-10deg);
+  transform: skewY(-8deg);
 }
  
 .banner-2 {
-  transform: skewY(10deg);
+  transform: skewY(8deg);
 }
 
   .banner-text {

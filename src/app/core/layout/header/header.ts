@@ -33,7 +33,6 @@ export class Header {
   // 🔥 Scroll effect
   @HostListener('window:scroll')
   onScroll(): void {
-    console.log(this.isScrolled ,"dasds")
     this.isScrolled = window.scrollY > 100;
   }
 

@@ -1,0 +1,75 @@
+.services {
+  padding: 80px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    var(--color-brand),
+    var(--color-brand-light));;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+}
+
+.header h2 {
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  height: 460px;
+  justify-content: center;
+}
+
+/* All cards equal initially */
+.cards app-service-card {
+  width: 250px;
+  transition: width 0.4s ease;
+}
+
+/* 🔥 Expand hovered card */
+.cards app-service-card:hover {
+  width: 300px;
+}
+
+
+
+
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .services {
+    padding: 40px 20px;
+  }
+
+  .cards {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  
+
+
+  .cards app-service-card,
+  .cards app-service-card:hover,
+  .cards:hover app-service-card:not(:hover) {
+    flex: unset;
+  }
+  .header h2 {
+    font-size: 28px;
+  }
+}

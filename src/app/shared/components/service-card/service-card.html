@@ -1,0 +1,17 @@
+<div class="card">
+  <img [src]="image" alt="service" />
+
+  <!-- Hover Content -->
+  <div class="overlay">
+    <div>
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+    </div>
+    <div class="cta">→</div>
+  </div>
+
+  <!-- Default Vertical Button -->
+  <div class="vertical-label">
+    {{ verticalLabel || title }}
+  </div>
+</div>
