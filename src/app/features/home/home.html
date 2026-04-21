@@ -1,10 +1,11 @@
 <main>
   <app-hero/>
-  <app-cross-banner
-    [banners]="[
-      { text: 'Coming soon: Smarter media solutions...', angle: -5 },
-      { text: 'New AI-powered ads platform launching soon!', angle: 5 }
-    ]"
-    [speed]="12"
-  ></app-cross-banner>
+
+  <app-cross-banner 
+    [text]="`Coming soon: Smarter media solutions for agencies and media owners!`"
+    [text2]="`We simplify media buying with smarter strategies, seamless execution, and measurable impact.`"
+    [speed]="'10s'">
+  </app-cross-banner>
+  <app-hero/>
+
 </main>

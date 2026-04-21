@@ -22,11 +22,10 @@
 
   html,
   body {
-    @apply h-full antialiased;
+    @apply antialiased;
     background-color: var(--color-surface);
     font-family: 'Work Sans', sans-serif;
-
-    overflow-x: hidden; /* ✅ prevents horizontal scroll */
+    min-height: 100%; 
   }
 
   /* Undo Preflight's link reset */
@@ -81,4 +80,9 @@
     -webkit-text-fill-color: transparent;
   }
 
+}
+
+main {
+      background: #050507;
+      overflow-x: hidden;
 }

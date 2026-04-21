@@ -1,24 +1,21 @@
-<div
-  class="banner-container"
-  [style.--speed]="speed + 's'"
->
-  <!-- Ribbon 1 -->
-  <div
-    class="ribbon ribbon-1"
-    [style.--angle]="banners[0].angle + 'deg'"
-  >
-    <div class="marquee">
-      <span>{{ banners[0].text }}</span>
+<div class="banners-container">
+      <!-- First Banner - skewed right -->
+      <div class="banner-container banner-1">
+        <div class="scroll-track" [style.--speed]="speed">
+          <div class="scroll-content">
+            <span class="banner-text">{{ text }}</span>
+            <span class="banner-text">{{ text }}</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Second Banner - skewed left (opposite direction) -->
+      <div class="banner-container banner-2">
+        <div class="scroll-track" [style.--speed]="speed">
+          <div class="scroll-content">
+            <span class="banner-text">{{ text2 }}</span>
+            <span class="banner-text">{{ text2 }}</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <!-- Ribbon 2 -->
-  <div
-    class="ribbon ribbon-2"
-    [style.--angle]="banners[1].angle + 'deg'"
-  >
-    <div class="marquee">
-      <span>{{ banners[1].text }}</span>
-    </div>
-  </div>
-</div>

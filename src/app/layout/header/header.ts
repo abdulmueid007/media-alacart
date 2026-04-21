@@ -33,7 +33,8 @@ export class Header {
   // 🔥 Scroll effect
   @HostListener('window:scroll')
   onScroll(): void {
-    this.isScrolled = window.scrollY > 200;
+    console.log(this.isScrolled ,"dasds")
+    this.isScrolled = window.scrollY > 100;
   }
 
   // 🔥 Toggle menu
