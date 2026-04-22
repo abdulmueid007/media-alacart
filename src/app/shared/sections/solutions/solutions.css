@@ -1,0 +1,85 @@
+.section {
+  padding: 60px;
+  background: 
+    linear-gradient(to right, rgb(5 24 26 / 70%) 0%, rgb(21 20 20 / 90%) 100%), 
+    linear-gradient(to bottom, #152424 0%, #000000 60%, #000000 100%);
+  color: white;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tag {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.highlight {
+  background: #ff2d55;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: black;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Hero */
+.hero {
+  grid-column: span 2;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.overlay > :first-child {
+  max-width: 75%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-column: span 1;
+  }
+
+  .overlay > :first-child {
+  max-width: 100%;
+  font-size: 14px;
+}
+}

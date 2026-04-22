@@ -31,17 +31,16 @@
           class="hero-img"
           (load)="onImageLoad()"
         />
-          <app-button variant="primary" size="lg" link="/demo" class="hero-cta">
-            Start your journey!
-          </app-button>
+         
+          <button appButton class="hero-cta">Start your journey!</button>
 
-        <app-button variant="dark-glass" size="md" link="/platform" class="hero-learn">
-          <app-icon 
+          <button appButton class="hero-learn" variant="outlined">
+            <app-icon 
             [icon]="faPlayCircle"
             color="#fff"
           />
           Learn More
-        </app-button>
+          </button>
       </div>
 
     </div>

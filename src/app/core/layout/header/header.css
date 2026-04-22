@@ -112,11 +112,6 @@
   transform: scaleX(1);
 }
 
-/* ── Login Button ───────────────────────────── */
-::ng-deep .login-btn {
-  padding: 0.6rem 2.25rem;
-}
-
 
 /* ── Hamburger ─────────────────────────────── */
 .hamburger {

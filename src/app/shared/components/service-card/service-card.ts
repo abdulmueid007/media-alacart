@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { IconComponent } from '../../ui/icon-component/icon-component';
+import { IconButton } from '../../ui/icon-button/icon-button';
+import { IconButtonDirective } from '../../ui/icon-button/icon-button-directive';
 
 @Component({
   selector: 'app-service-card',
   standalone: true,
   templateUrl: './service-card.html',
   styleUrls: ['./service-card.css'], 
-  imports: [CommonModule, IconComponent]
+  imports: [CommonModule, IconButton, IconButtonDirective]
 })
 export class ServiceCard implements AfterViewInit {
   @Input() title!: string;

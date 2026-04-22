@@ -1,0 +1,13 @@
+<div class="card" [class.highlight]="data.highlight">
+  <div class="icon" *ngIf="data.icon">
+    <img [src]="data.icon" alt="" />
+  </div>
+
+  <h3>{{ data.title }}</h3>
+  <p>{{ data.description }}</p>
+
+  <div class="button-wrapper">
+    <app-icon-button iconButton variant="outlined"/>
+  </div>
+  
+</div>

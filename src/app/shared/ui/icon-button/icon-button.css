@@ -1,0 +1,17 @@
+.icon-btn-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+    font-weight: 600;
+}
+
+.icon-btn-wrapper-outlined {
+  background: transparent;
+  border: 2px solid var(--color-text);
+} 

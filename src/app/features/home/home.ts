@@ -11,15 +11,17 @@ import { HomeService } from '../../core/services/home';
 import { HomeResponse } from '../../core/model/home';
 import { CommonModule } from '@angular/common';
 import { Loader } from '../../shared/ui/loader/loader';
+import { Solutions } from '../../shared/sections/solutions/solutions';
+
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Loader],  
+  imports: [Hero, CrossBanner, OurServices, CommonModule, Loader, Solutions],  
   templateUrl: './home.html',
 })
 export class Home {
-
   loading = signal(true);
   error = signal(false);
 

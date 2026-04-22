@@ -4,11 +4,16 @@
 
 /* ── Global tokens (available everywhere via var()) ── */
 :root {
-  --color-brand:       #ff2d55;
-  --color-brand-light: #ff6b5b;
+  --color-brand:       #EB3353;
+  --color-brand-light: #DE2572;
   --color-surface:     #0d0d0f;
   --color-muted:       #9898aa;
   --color-text:        #e8e8f0;
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--color-brand),
+    var(--color-brand-light)
+  );
 }
 
 /* ── Base resets ──────────────────────────────────── */
@@ -63,17 +68,6 @@
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-}
-
-/* ── Utilities Layer (optional helpers) ─────────── */
-@layer utilities {
-
-  .text-gradient {
-    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
 }

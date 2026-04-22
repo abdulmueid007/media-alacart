@@ -26,7 +26,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/shared/ui/button/button.css",
+              "src/app/shared/ui/icon-button/icon-button.css"
             ]
           },
           "configurations": {

@@ -24,13 +24,8 @@
       }
     </nav>
 
-    <!-- Desktop Login -->
-   
-     <app-button variant="primary" customClass="login-btn" (click)="closeMenu()">
-      Login
-    </app-button>
+    <button appButton class="login-btn">Login</button>
 
-    <!-- Hamburger (Mobile) -->
     <button
       class="hamburger"
       [class.open]="isMenuOpen"
@@ -60,9 +55,7 @@
       </a>
     }
 
-    <app-button variant="primary" customClass="login-btn mobile-login" (click)="closeMenu()">
-      Login
-    </app-button>
+    <button appButton class="ogin-btn mobile-login" (click)="closeMenu()">Login</button>
 
   </nav>
 </header>

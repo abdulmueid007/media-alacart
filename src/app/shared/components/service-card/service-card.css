@@ -27,7 +27,6 @@
   transition: transform 0.5s ease;
 }
 
-/* 🔴 Vertical Button (DEFAULT) */
 .vertical-label {
   position: absolute;
   right: 0;
@@ -36,7 +35,7 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 
-  background: #e63b4a;
+  background: var(--gradient-brand);
   color: white;
   padding: 18px 12px;
   border-radius: 24px;
@@ -82,23 +81,8 @@
   transform: rotate(180deg) translateY(30px);
 }
 
-/* 🔥 Show overlay on hover */
 .card:hover .overlay {
   opacity: 1;
   transform: translateY(0);
   padding-right: 10px;
-}
-
-/* Arrow button */
-.cta {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #e63b4a;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-45deg);
-    font-weight: 600;
 }

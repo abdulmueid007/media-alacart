@@ -13,7 +13,6 @@
   z-index: 1;
   text-align: center;
   width: 100%;
-  margin-bottom: 2.5rem;
 }
 
 .badge {
@@ -28,7 +27,7 @@
 .bigger-impact {
   font-size: 2rem;
   font-weight: 600;
-  background: linear-gradient(90deg, #ff2d55 0%, #ff7060 100%);
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,7 +60,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 .hero-container .hero-card.hidden {

@@ -1,0 +1,38 @@
+<ng-container *ngIf="solutionData">
+  <section class="section">
+
+    <!-- Heading -->
+    <div class="heading">
+      <p class="tag">WHY MEDIA ALA CARTE?</p>
+
+      <h1>
+        {{ solutionData.heading }}
+        <span class="highlight">{{ solutionData.highlightText }}</span>
+        {{ solutionData.subheading }}
+      </h1>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid">
+
+      <!-- Hero Banner -->
+      <div class="hero">
+        <img [src]="solutionData.heroImage" alt="" />
+        <div class="overlay">
+          <p>{{ solutionData.heroText }}</p>
+          <button appButton variant="primary" textColor="var(--color-surface)">
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <app-solution-card
+        *ngFor="let card of solutionData.cards"
+        [data]="card">
+      </app-solution-card>
+
+    </div>
+
+  </section>
+</ng-container>

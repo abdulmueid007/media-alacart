@@ -10,10 +10,7 @@
 .icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(
-    135deg,
-    var(--color-brand),
-    var(--color-brand-light));;
+  background: var(--gradient-brand);
   border-radius: 12px;
   display: flex;
   justify-content: center;
