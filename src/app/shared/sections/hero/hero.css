@@ -52,46 +52,6 @@
   letter-spacing: 0.01em;
 }
 
-/* ── Corner blob decorations ──────────────── */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-bg::before,
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  filter: blur(70px);
-  border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%;
-}
-
-.hero-bg::before {
-  width: 400px;
-  height: 400px;
-  top: -130px;
-  left: -130px;
-  background: radial-gradient(ellipse,
-    rgba(0, 125, 135, 0.42) 0%,
-    rgba(0, 60, 80, 0.18) 55%,
-    transparent 75%
-  );
-}
-
-.hero-bg::after {
-  width: 360px;
-  height: 360px;
-  top: -110px;
-  right: -110px;
-  background: radial-gradient(ellipse,
-    rgba(0, 105, 120, 0.38) 0%,
-    rgba(0, 50, 75, 0.15) 55%,
-    transparent 75%
-  );
-  border-radius: 60% 40% 30% 70% / 40% 60% 50% 50%;
-}
 
 /* ── Container ────────────────────────────── */
 .hero-container {
@@ -104,6 +64,14 @@
   gap: 2.5rem;
 }
 
+.hero-container .hero-card.hidden {
+  opacity: 0;
+}
+
+.skeleton-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 /* CTA button — hangs above the top-left corner of the card */
 .cta-anchor {
   position: absolute;
@@ -123,6 +91,7 @@
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 16 / 9;
 }
 
 .hero-cta {

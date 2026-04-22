@@ -1,25 +1,35 @@
 <section class="hero">
-
-  <div class="hero-bg" aria-hidden="true"></div>
-
   <div class="hero-container">
 
-     <div class="hero-text">
-    <p class="badge">#1 MEDIA MARKETPLACE FOR ADVERTISERS &amp; AGENCIES</p>
-    <p class="bigger-impact">Bigger Impact</p>
-    <h1 class="main-title">Stronger Campaigns</h1>
-    <p class="tagline">Smarter Media Buying</p>
-  </div>
+    <div class="hero-text">
+      <p class="badge">#1 MEDIA MARKETPLACE FOR ADVERTISERS &amp; AGENCIES</p>
+      <p class="bigger-impact">Bigger Impact</p>
+      <h1 class="main-title">Stronger Campaigns</h1>
+      <p class="tagline">Smarter Media Buying</p>
+    </div>
 
     <div class="hero-visual">
 
-      
+      <div class="skeleton-container" *ngIf="!imageLoaded">
+        <ngx-skeleton-loader
+            
+            appearance="square"
+            animation="pulse"
+            [theme]="{
+              height: '100%',
+              width: '100%',
+              borderRadius: '50px',
+              background: 'rgb(125 122 122 / .3)',
+            }" />
 
-      <div class="hero-card">
+      </div>
+      <div class="hero-card" [class.hidden]="!imageLoaded" >
+       
         <img
           [src]="heroBanner.image"
           alt="Business professionals collaborating"
           class="hero-img"
+          (load)="onImageLoad()"
         />
           <app-button variant="primary" size="lg" link="/demo" class="hero-cta">
             Start your journey!
