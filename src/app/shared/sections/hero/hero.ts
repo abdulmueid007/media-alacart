@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppButton } from '../../ui/button/button';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
+import { HeroBanner } from '../../../core/model/home';
 
 @Component({
   selector: 'app-hero',
@@ -13,4 +14,5 @@ import { IconComponent } from '../../ui/icon-component/icon-component';
 })
 export class Hero {
   faPlayCircle = faPlayCircle;
+  @Input({ required: true }) heroBanner!: HeroBanner;
 }

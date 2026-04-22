@@ -1,6 +1,5 @@
 <section class="hero">
 
-  <!-- Corner blobs -->
   <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-container">
@@ -12,16 +11,13 @@
     <p class="tagline">Smarter Media Buying</p>
   </div>
 
-    <!-- Visual area -->
     <div class="hero-visual">
 
-      <!-- CTA overlaps the top-left of the card -->
       
 
-      <!-- Image card (overflow:hidden clips the corners) -->
       <div class="hero-card">
         <img
-          src="assets/images/hero-banner.png"
+          [src]="heroBanner.image"
           alt="Business professionals collaborating"
           class="hero-img"
         />
@@ -29,7 +25,6 @@
             Start your journey!
           </app-button>
 
-        <!-- Learn More overlaps the bottom-right corner -->
         <app-button variant="dark-glass" size="md" link="/platform" class="hero-learn">
           <app-icon 
             [icon]="faPlayCircle"

@@ -8,11 +8,6 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// interface BannerItem {
-//   text: string;
-//   angle: number;
-// }
-
 @Component({
   selector: 'app-cross-banner',
   templateUrl: './cross-banner.html',
@@ -22,8 +17,8 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CrossBanner implements AfterViewInit {
-  @Input() text: string = 'Infinite Scroll Text Banner • Creative Design • Smooth Animation •';
-  @Input() text2: string = 'Premium Experience • Dynamic Visuals • Engaging Content •';
+  @Input({ required: true }) primaryText!: string;
+  @Input({ required: true }) secondaryText!: string;
   @Input() speed: string = '20s';
  
   @ViewChild('scrollTrack') scrollTrack!: ElementRef;
@@ -33,7 +28,5 @@ export class CrossBanner implements AfterViewInit {
       this.scrollTrack.nativeElement.style.setProperty('--speed', this.speed);
     }
   }
- 
-
  
 }

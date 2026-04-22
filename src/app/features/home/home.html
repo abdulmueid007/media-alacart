@@ -1,11 +1,40 @@
 <main>
-  <app-hero/>
 
-  <app-cross-banner 
-    [text]="`Coming soon: Smarter media solutions for agencies and media owners!`"
-    [text2]="`We simplify media buying with smarter strategies, seamless execution, and measurable impact.`"
-    [speed]="'10s'">
-  </app-cross-banner>
-  <app-services-section/>
+  <ng-container *ngIf="loading(); else content">
+  <app-loader />
+</ng-container>
+
+<ng-template #content>
+  <ng-container *ngIf="!error() && homeData() as home; else errorTpl">
+
+    <app-hero [heroBanner]="home.hero"></app-hero>
+    <app-cross-banner 
+      [primaryText]="home.adBanner.primaryText"
+      [secondaryText]="home.adBanner.secondaryText"
+      [speed]="'10s'"
+    />
+    <app-services-section [services]="home.services" />
+
+  </ng-container>
+</ng-template>
+
+<ng-template #errorTpl>
+  <div class="absolute-center error-container">
+    <h2>Something went wrong.</h2>
+
+    <button 
+      (click)="retry()"
+      [disabled]="retryCount() >= maxRetries">
+
+      {{ retryCount() >= maxRetries 
+          ? 'Retry limit reached' 
+          : 'Try Again' }}
+    </button>
+
+    <p *ngIf="retryCount() > 0">
+      Attempts: {{ retryCount() }} / {{ maxRetries }}
+    </p>
+  </div>
+</ng-template>
 
 </main>

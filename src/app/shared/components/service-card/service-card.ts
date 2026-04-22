@@ -14,7 +14,6 @@ export class ServiceCard implements AfterViewInit {
   @Input() title!: string;
   @Input() description!: string;
   @Input() image!: string;
-  @Input() verticalLabel?: string;
 
   faArrowRight = faArrowRight;
 
