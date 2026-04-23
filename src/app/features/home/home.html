@@ -5,7 +5,7 @@
 </ng-container>
 
 <ng-template #content>
-  <ng-container *ngIf="!error() && homeData() as home; else errorTpl">
+  <ng-container *ngIf="!error() && homeData() as home; else errorContent">
 
     <app-hero [heroBanner]="home.hero"></app-hero>
     <app-cross-banner 
@@ -19,7 +19,7 @@
   </ng-container>
 </ng-template>
 
-<ng-template #errorTpl>
+<ng-template #errorContent>
   <div class="absolute-center error-container">
     <h2>Something went wrong.</h2>
 
