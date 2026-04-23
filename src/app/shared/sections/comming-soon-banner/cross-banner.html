@@ -32,12 +32,12 @@
         ngmMotion
         [initial]="{
           opacity: 0,
-          x: '-200px',
+          transform: 'translateX(200px) rotate(rotation)',
           rotate: rotation
         }"
         [whileInView]="{
           opacity: 1,
-          x: 0,
+          transform: 'translateX(0) rotate(rotation)',
           rotate: rotation,
           transition: {
             delay: .2,
