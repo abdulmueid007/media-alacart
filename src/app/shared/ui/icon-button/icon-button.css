@@ -14,4 +14,8 @@
 .icon-btn-wrapper-outlined {
   background: transparent;
   border: 2px solid var(--color-text);
-} 
+}
+
+.icon-btn-wrapper:active{
+  transform: rotate(-45deg) scale(0.95)
+}

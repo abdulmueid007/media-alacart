@@ -28,10 +28,10 @@
 
     <button
       class="hamburger"
-      [class.open]="isMenuOpen"
+      [class.open]="isMenuOpen()"
       (click)="toggleMenu()"
       aria-label="Toggle menu"
-      aria-expanded="{{ isMenuOpen }}"
+      [attr.aria-expanded]="isMenuOpen()"
     >
       <span></span>
       <span></span>
@@ -41,15 +41,25 @@
   </div>
 
   <!-- Mobile Navigation -->
-  <nav class="mobile-nav" [class.open]="isMenuOpen">
+  <nav class="mobile-nav" [class.open]="isMenuOpen()" 
+  >
 
-    @for (link of navLinks; track link.path) {
+    @for (link of navLinks; track link.path; let i = $index) {
       <a
         class="mobile-link"
         [routerLink]="link.path"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: link.path === '/' }"
         (click)="closeMenu()"
+        ngmMotion
+          [animate]="isMenuOpen() ? 'visible' : 'hidden'"
+          [variants]="itemVariants"
+          [transition]="{
+            type: 'spring',
+            stiffness: 300,
+            damping: 24,
+            delay: i * 0.08
+          }"
       >
         {{ link.label }}
       </a>

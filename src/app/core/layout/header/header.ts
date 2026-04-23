@@ -1,15 +1,21 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonDirective } from '../../../shared/ui/button/button.directive';
+import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ButtonDirective],
+  imports: [RouterModule, ButtonDirective, NgmMotionDirective],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class Header {
+
+  readonly itemVariants: Variants = {
+    visible: { opacity: 1, y: 0, x: 0 },
+    hidden: { opacity: 0, y: 20, x: -12 },
+} ;
 
   readonly navLinks = [
     { label: 'The Platform',   path: '/' },
@@ -20,39 +26,34 @@ export class Header {
     { label: 'About Us',       path: '/about' },
   ];
 
-  isMenuOpen = false;
+  isMenuOpen = signal(true);
   isScrolled = false;
 
   constructor(private router: Router) {
-    // 🔥 Close mobile menu on route change
     this.router.events.subscribe(() => {
-      this.isMenuOpen = false;
+      this.isMenuOpen.set(false);
     });
   }
 
-  // 🔥 Scroll effect
   @HostListener('window:scroll')
   onScroll(): void {
     this.isScrolled = window.scrollY > 100;
   }
 
-  // 🔥 Toggle menu
   toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update(v => !v);
   }
 
-  // 🔥 Close menu manually
   closeMenu(): void {
-    this.isMenuOpen = false;
+    this.isMenuOpen.set(false);
   }
 
-  // 🔥 Close menu when clicking outside
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event): void {
     const target = event.target as HTMLElement;
 
     if (!target.closest('.header')) {
-      this.isMenuOpen = false;
+      this.isMenuOpen.set(false);
     }
   }
 }

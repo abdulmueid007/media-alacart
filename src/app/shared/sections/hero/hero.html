@@ -32,9 +32,46 @@
           (load)="onImageLoad()"
         />
          
-          <button appButton class="hero-cta">Start your journey!</button>
+          <button 
+            appButton 
+            class="hero-cta"
+            ngmMotion
+            [initial]="{
+              opacity: 0,
+              x: -80
+            }"
+            [whileInView]="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                delay: .2,
+                duration: 0.5,
+                ease: 'easeInOut'
+              }
+            }"
+            [viewport]="{ once: true }"
+          >Start your journey!</button>
 
-          <button appButton class="hero-learn" variant="outlined">
+          <button 
+          appButton 
+          class="hero-learn" 
+          variant="outlined"
+          ngmMotion
+            [initial]="{
+              opacity: 0,
+              x: 80
+            }"
+            [whileInView]="{
+              opacity: 1,
+              x: 0,
+              transition: {
+                delay: .2,
+                duration: 0.5,
+                ease: 'easeInOut'
+              }
+            }"
+            [viewport]="{ once: true }"
+          >
             <app-icon 
             [icon]="faPlayCircle"
             color="#fff"

@@ -1,6 +1,24 @@
-<div class="banners-container">
+<div class="banners-container" #section>
       <!-- First Banner - skewed right -->
-      <div class="banner-container banner-1">
+      <div class="banner-container banner-1" #topBanner
+      ngmMotion
+    [initial]="{
+      opacity: 0,
+      x: 200,
+      rotate: -5
+    }"
+    [whileInView]="{
+      opacity: 1,
+      x: 0,
+      rotate: -5,
+      transition: {
+        delay: .2,
+          duration: 0.5,
+          ease: 'easeInOut'
+      }
+    }" 
+    [viewport]="{ once: true, margin: '-100px' }"
+      >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
             <span class="banner-text">{{ primaryText }}</span>
@@ -10,7 +28,25 @@
       </div>
  
       <!-- Second Banner - skewed left (opposite direction) -->
-      <div class="banner-container banner-2">
+      <div class="banner-container banner-2" 
+        ngmMotion
+        [initial]="{
+          opacity: 0,
+          x: -200,
+          rotate: 5
+        }"
+        [whileInView]="{
+          opacity: 1,
+          x: 0,
+          rotate: 5,
+          transition: {
+            delay: .2,
+            duration: 0.5,
+            ease: 'easeInOut'
+          }
+        }" 
+        [viewport]="{ once: true, margin: '-100px' }"
+      >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
             <span class="banner-text">{{ secondaryText }}</span>

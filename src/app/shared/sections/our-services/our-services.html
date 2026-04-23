@@ -12,13 +12,24 @@
     </div>
 
     <div class="cards">
-      <app-service-card
-        *ngFor="let service of services; let i = index"
-        [title]="service.title"
-        [description]="service.description"
-        [image]="service.image"
-        [style.animationDelay]="i * 0.2 + 's'"
-      ></app-service-card>
+      @for (service of services; track service.title; let i = $index) {
+        <app-service-card
+          
+          [title]="service.title"
+          [description]="service.description"
+          [image]="service.image"
+          ngmMotion
+          [initial]="{ opacity: 0, y: 60 }"
+          [whileInView]="{ opacity: 1, y: 0 }"
+          [transition]="{
+            delay: i * 0.12,
+            type: 'spring',
+            stiffness: 300,
+            damping: 20
+          }"
+          
+        />
+      }
     </div>
   </section>
 </ng-container>

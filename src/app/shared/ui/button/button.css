@@ -44,6 +44,10 @@
   box-shadow: 0 4px 14px rgba(255, 45, 85, 0.3);
 }
 
+.btn-outlined:active {
+  transform: scale(0.97);
+}
+
 /* ── Dark glass ───────────────────────── */
 .btn-outlined {
   background: rgba(8, 8, 14, 0.78);
@@ -73,9 +77,10 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
   .btn {
     font-size: 6px;
+    padding: .5rem;
   }
 }
 
