@@ -17,5 +17,9 @@ export class CrossBanner {
   @Input({ required: true }) primaryText!: string;
   @Input({ required: true }) secondaryText!: string;
   @Input() speed: string = '20s';
+
+  get rotation(): number {
+    return window.innerWidth < 768 ? 8 : 5;
+  }
  
 }
