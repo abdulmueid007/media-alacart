@@ -3,13 +3,14 @@ import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { IconButton } from '../../ui/icon-button/icon-button';
 import { IconButtonDirective } from '../../ui/icon-button/icon-button-directive';
+import { Image } from '../../ui/image/image';
 
 @Component({
   selector: 'app-service-card',
   standalone: true,
   templateUrl: './service-card.html',
   styleUrls: ['./service-card.css'], 
-  imports: [CommonModule, IconButton, IconButtonDirective]
+  imports: [CommonModule, IconButton, IconButtonDirective, Image]
 })
 export class ServiceCard implements AfterViewInit {
   @Input() title!: string;

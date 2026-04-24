@@ -17,21 +17,12 @@
 
       <!-- Hero Banner -->
       <div class="hero" 
-      ngmMotion
-      [initial]="{
-        opacity: 0,
-         y: 80
-      }"
-      [whileInView]="{
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: .2,
-          duration: 0.5,
-          ease: 'easeInOut'
-        }
-      }">
-        <img [src]="solutionData.heroImage" alt="" />
+        [appSlideReveal]="'up'">
+        <app-image
+          [src]="solutionData.heroImage"
+          alt="heroImage"
+          borderRadius="16px"
+        />
         <div class="overlay">
           <p>{{ solutionData.heroText }}</p>
           <button appButton variant="primary" textColor="var(--color-surface)">
