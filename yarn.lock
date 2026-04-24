@@ -2196,6 +2196,11 @@ cors@^2.8.5:
     object-assign "^4"
     vary "^1"
 
+countup.js@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.10.0.tgz#5199c923a33b51cb9fbfc0d4c0672c554dea394f"
+  integrity sha512-QQpZx7oYxsR+OeITlZe46fY/OQjV11oBqjY8wgIXzLU2jIz8GzOrbMhqKLysGY8bWI3T1ZNrYkwGzKb4JNgyzg==
+
 cross-spawn@^7.0.5:
   version "7.0.6"
   resolved "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz"

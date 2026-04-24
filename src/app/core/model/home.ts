@@ -31,9 +31,24 @@ export interface SolutionSection {
   cards: SolutionCardType[];
 }
 
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+export interface StatsData {
+  badge: string;
+  heading: string;
+  subtext: string;
+  buttonLabel: string;
+  bannerImage: string;
+  stats: StatItem[];
+}
+
 export interface HomeResponse {
   hero: HeroBanner;
   adBanner: AdBanner;
   services: Service[];
   solutions: SolutionSection;
+  statsData: StatsData;
 }

@@ -1,0 +1,164 @@
+/* ── Section ─────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  background-color: #080808;
+  padding: 80px 48px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/bg.png') no-repeat center;
+  opacity: .2;
+
+}
+
+/* ── Content ─────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 760px;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+/* ── Badge pill ──────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #434746;
+  border: 1px solid #434746;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+/* ── Heading ─────────────────────────────────────────── */
+.heading {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+/* ── Subtext ─────────────────────────────────────────── */
+.subtext {
+  margin: 0;
+  font-size: 20px;
+  color: var(--color-text);
+  max-width: 75%;
+}
+
+/* ── CTA Button ──────────────────────────────────────── */
+.cta-btn {
+  margin-top: 4px;
+  padding: 14px 32px;
+  background: transparent;
+  border-radius: 16px;
+  font-size: 16px;
+}
+
+/* ── Stats card ──────────────────────────────────────── */
+.stats-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  background: var(--gradient-brand);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 52px 60px;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* ── Single stat item ────────────────────────────────── */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.stat-value {
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Stat label ──────────────────────────────────────── */
+.stat-label {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  text-align: center;
+  max-width: 240px;
+}
+
+.members{
+  background: var(--color-black);
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.members img{
+  max-width: 75%;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .stats-card {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 32px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .subtext {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+
+  .stat-item {
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .members img{
+    max-width: 100%;
+  }
+}

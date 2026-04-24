@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { IconButton } from '../../ui/icon-button/icon-button';
-import { IconButtonDirective } from '../../ui/icon-button/icon-button-directive';
+import { IconButtonDirective } from '../../../core/directives/icon-button.directive';
 
 @Component({
   selector: 'app-service-card',

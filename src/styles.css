@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 /* ── Global tokens (available everywhere via var()) ── */
 :root {
@@ -9,6 +7,7 @@
   --color-surface:     #0d0d0f;
   --color-muted:       #9898aa;
   --color-text:        #e8e8f0;
+  --color-black:        #000000;
   --gradient-brand: linear-gradient(
     135deg,
     var(--color-brand),
@@ -17,59 +16,28 @@
 }
 
 /* ── Base resets ──────────────────────────────────── */
-@layer base {
-  /* Global box sizing fix */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    @apply antialiased;
-    background-color: var(--color-surface);
-    font-family: 'Work Sans', sans-serif;
-    min-height: 100%;
-  }
-
-  /* Undo Preflight's link reset */
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@layer components {
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  /* 🔘 Primary Button */
-  .btn-primary {
-    @apply inline-flex items-center justify-center
-           px-6 py-2.5
-           rounded-full
-           font-semibold
-           text-white
-           bg-gradient-to-r from-brand to-brand-light
-           transition-all duration-200 ease-out;
-  }
+  background-color: var(--color-surface);
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  .btn-primary:hover {
-    @apply opacity-95 -translate-y-[1px];
-    box-shadow: 0 6px 20px rgba(255, 45, 85, 0.35);
-  }
-
-  .btn-primary:active {
-    @apply translate-y-0 opacity-100;
-  }
-
-  /* 📦 Glass header effect */
-  .glass-header {
-    background: rgba(10, 10, 13, 0.8);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 main {
