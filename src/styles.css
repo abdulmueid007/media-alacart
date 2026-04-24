@@ -41,7 +41,7 @@ a {
 }
 
 main {
-  overflow-x: clip;
+  overflow: hidden;
 }
 
 .absolute-center {
