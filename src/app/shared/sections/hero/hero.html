@@ -3,17 +3,22 @@
 
     <div class="hero-text">
       <p class="badge">#1 MEDIA MARKETPLACE FOR ADVERTISERS &amp; AGENCIES</p>
-      <p class="bigger-impact" [appSlideReveal]="'down'"
-          [once]="true">Bigger Impact</p>
-      <h1 class="main-title" [appSlideReveal]="'left'"
-          [once]="true">Stronger Campaigns</h1>
-      <p class="tagline" [appSlideReveal]="'up'"
-          [once]="true">Smarter Media Buying</p>
+      <p class="bigger-impact" appSlideReveal 
+  animation="slide-down"
+          >Bigger Impact</p>
+      <h1 class="main-title"
+      appSlideReveal 
+  animation="slide-left"
+          >Stronger Campaigns</h1>
+      <p class="tagline" 
+      appSlideReveal 
+  animation="slide-right"
+          >Smarter Media Buying</p>
     </div>
 
     <div class="hero-visual">
 
-      <div class="skeleton-container" *ngIf="!imageLoaded">
+      <div class="skeleton-container hero-card" *ngIf="!imageLoaded">
         <ngx-skeleton-loader
             
             appearance="square"
@@ -33,25 +38,30 @@
           alt="Business professionals collaborating"
           class="hero-img"
           (load)="onImageLoad()"
+          appSlideReveal 
+          animation="slide-up"
         />
          
           <button 
             appButton 
             class="hero-cta"
-           [appSlideReveal]="'left'"
-            [once]="true"
+            appSlideReveal 
+          animation="zoom"
+
+           
           >Start your journey!</button>
 
           <button 
           appButton 
           class="hero-learn" 
           variant="outlined"
-          [appSlideReveal]="'right'"
-          [once]="true"
+          appSlideReveal 
+          animation="zoom"
           >
             <app-icon 
             [icon]="faPlayCircle"
-            color="#fff"
+            color="var(--color-text)"
+            
           />
           Learn More
           </button>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
@@ -21,8 +21,13 @@ export class Hero {
   faPlayCircle = faPlayCircle;
   imageLoaded = false;
   @Input({ required: true }) heroBanner!: HeroBanner;
+  @ViewChildren(SlideRevealDirective)
+  slideDirectives!: QueryList<SlideRevealDirective>;
 
   onImageLoad() {
     this.imageLoaded = true;
+    requestAnimationFrame(() => {
+      this.slideDirectives?.forEach(dir => dir.reobserve());
+    });
   }
 }

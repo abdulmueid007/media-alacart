@@ -2,64 +2,76 @@ import {
   Directive,
   ElementRef,
   Input,
-  AfterViewInit,
-  inject
+  OnInit,
+  OnDestroy
 } from '@angular/core';
-import { GsapService } from '../services/gsap.service';
-
-
-type Direction = 'left' | 'right' | 'up' | 'down';
+import { ScrollAnimationService } from '../services/scroll-animation.service';
 
 @Directive({
-  selector: '[appSlideReveal]',
-  standalone: true
+  selector: '[appSlideReveal]'
 })
-export class SlideRevealDirective implements AfterViewInit {
-  private el = inject(ElementRef<HTMLElement>);
-  private gsapService = inject(GsapService);
+export class SlideRevealDirective implements OnInit, OnDestroy {
 
-  @Input('appSlideReveal') direction: Direction = 'left';
-  @Input() once = false;
-  @Input() delay = 1;
+  @Input() animation: 'fade' | 'slide-up' | 'slide-down' | 'slide-right' | 'slide-left' | 'zoom' = 'fade';
+  @Input() duration?: number;
+  @Input() delay?: number;
+  @Input() threshold?: number;
+  @Input() once: boolean = true;
 
-  async ngAfterViewInit() {
-    const loaded = await this.gsapService.loadGsap();
-    if (!loaded) return;
+  private observer!: IntersectionObserver;
 
-    const { gsap } = loaded;
+  constructor(
+    private el: ElementRef,
+    private config: ScrollAnimationService
+  ) {}
 
-    let x = 0;
-    let y = 0;
+  ngOnInit() {
+    const nativeEl = this.el.nativeElement;
+    const cfg = this.config.getConfig();
 
-    switch (this.direction) {
-      case 'left':
-        x = -150;
-        break;
-      case 'right':
-        x = 150;
-        break;
-      case 'up':
-        y = 150;
-        break;
-      case 'down':
-        y = -150;
-        break;
-    }
+    const duration = this.duration ?? cfg.duration;
+    const delay = this.delay ?? cfg.delay;
+    const threshold = this.threshold ?? cfg.threshold;
 
-    gsap.from(this.el.nativeElement, {
-      x,
-      y,
-      opacity: 0,
-      duration: this.delay,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: this.el.nativeElement,
-        once: this.once,
-        start: 'top 85%',
-        toggleActions: this.once
-          ? 'play none none none'
-          : 'play none none reset'
-      }
+    nativeEl.style.transitionProperty = 'opacity, transform';
+    nativeEl.style.transitionDuration = `${duration}ms`;
+    nativeEl.style.transitionTimingFunction = 'ease';
+    nativeEl.style.transitionDelay = `${delay}ms`;
+    nativeEl.classList.add('aos-init', this.animation);
+
+    this.observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          nativeEl.classList.add('aos-animate');
+
+          if (this.once) {
+            this.observer.unobserve(nativeEl);
+          }
+        } else if (!this.once) {
+          nativeEl.classList.remove('aos-animate');
+        }
+      },
+      { threshold }
+    );
+
+    requestAnimationFrame(() => {
+      this.observer.observe(nativeEl);
     });
+  }
+
+  public reobserve() {
+    const nativeEl = this.el.nativeElement;
+
+    if (!this.observer) return;
+
+    this.observer.disconnect();
+
+    requestAnimationFrame(() => {
+      this.observer.observe(nativeEl);
+    });
+  }
+
+  ngOnDestroy() {
+    this.observer?.disconnect();
   }
 }

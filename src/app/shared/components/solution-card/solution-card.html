@@ -1,4 +1,5 @@
-<div class="card" [class.highlight]="data.highlight">
+<div class="card" [class.highlight]="data.highlight" appSlideReveal 
+  [animation]="index % 3 === 0 ? 'slide-left' : 'slide-right'">
   <div class="icon" *ngIf="data.icon">
     <img [src]="data.icon" alt="" />
   </div>

@@ -7,7 +7,8 @@
 
       <h1>
         {{ solutionData.heading }}
-        <span class="highlight" [appSlideReveal]="'down'" [once]="true" [delay]=".5">{{ solutionData.highlightText }}</span>
+        <span class="highlight" appSlideReveal 
+          animation="zoom">{{ solutionData.highlightText }}</span>
         {{ solutionData.subheading }}
       </h1>
     </div>
@@ -16,27 +17,29 @@
     <div class="grid">
 
       <!-- Hero Banner -->
-      <div class="hero" 
-        [appSlideReveal]="'up'">
-        <app-image
-          [src]="solutionData.heroImage"
-          alt="heroImage"
-          borderRadius="16px"
-        />
-        <div class="overlay">
-          <p>{{ solutionData.heroText }}</p>
-          <button appButton variant="primary" textColor="var(--color-surface)">
-            Get Started
-          </button>
-        </div>
-      </div>
+      <div 
+        class="hero" 
+        appSlideReveal 
+        animation="slide-up">
+          <app-image
+            [src]="solutionData.heroImage"
+            alt="heroImage"
+            borderRadius="16px"
+          />
+          <div class="overlay">
+            <p>{{ solutionData.heroText }}</p>
+            <button appButton variant="primary" textColor="var(--color-surface)">
+              Get Started
+            </button>
+          </div>
+    </div>
 
     @for (card of solutionData.cards; track card.title; let i = $index) {
       <app-solution-card
       
         [data]="card"
-        
-       [appSlideReveal]="i % 3 === 0 ? 'left' : 'right'" />
+        [index]="i"
+        />
       
     }
     </div>

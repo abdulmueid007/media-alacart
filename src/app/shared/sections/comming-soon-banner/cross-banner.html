@@ -1,6 +1,7 @@
 <div class="banners-container" #section>
       
-      <div class="banner-container banner-1" [appSlideReveal]="'right'" [once]="true">
+      <div class="banner-container banner-1" appSlideReveal 
+      animation="slide-left">
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
             <span class="banner-text">{{ primaryText }}</span>
@@ -10,8 +11,8 @@
       </div>
  
       <div class="banner-container banner-2" 
-      [appSlideReveal]="'left'"
-      [once]="true"
+      appSlideReveal 
+      animation="slide-left"
       >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
