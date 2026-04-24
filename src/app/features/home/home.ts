@@ -13,13 +13,14 @@ import { CommonModule } from '@angular/common';
 import { Loader } from '../../shared/ui/loader/loader';
 import { Solutions } from '../../shared/sections/solutions/solutions';
 import { Stats } from '../../shared/sections/app-stats/stats';
+import { Media } from '../../shared/sections/media/media';
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Loader, Solutions, Stats],  
+  imports: [Hero, CrossBanner, OurServices, CommonModule, Loader, Solutions, Stats, Media],  
   templateUrl: './home.html',
 })
 export class Home {

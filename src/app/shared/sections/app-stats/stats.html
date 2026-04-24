@@ -1,31 +1,24 @@
 <section class="hero-wrapper">
 
   <div class="hero-section">
-  <!-- Content wrapper -->
   <div class="hero-content">
 
-    <!-- Badge pill -->
     <span class="badge">{{ statsData.badge }}</span>
 
-    <!-- Heading -->
     <h1 class="heading">{{ statsData.heading }}</h1>
 
-    <!-- Subtext -->
     <p class="subtext">{{ statsData.subtext }}</p>
 
-    <!-- CTA Button -->
     <button class="cta-btn" appButton variant="outlined">{{ statsData.buttonLabel }}</button>
 
   </div>
 
-  <!-- Stats card -->
   <div class="stats-card">
     <div
       *ngFor="let stat of statsData.stats; let last = last"
       class="stat-item"
       [class.no-divider]="last"
     >
-      <!-- <span class="stat-value">{{ stat.value }}</span> -->
         <span class="stat-value" [countUp]="stat.value"></span> 
        
       <span class="stat-label">{{ stat.label }}</span>

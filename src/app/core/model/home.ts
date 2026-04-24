@@ -1,5 +1,9 @@
 export interface HeroBanner {
   image: string;
+  eyebrow: string;
+  highlight: string;
+  title: string;
+  subtitle: string;
 }
 
 export interface AdBanner {
@@ -45,10 +49,20 @@ export interface StatsData {
   stats: StatItem[];
 }
 
+
+export type MediaInfo = {
+  title: string;
+  bullets: string[];
+  cta: {
+    text: string;
+  };
+};
+
 export interface HomeResponse {
   hero: HeroBanner;
   adBanner: AdBanner;
   services: Service[];
   solutions: SolutionSection;
   statsData: StatsData;
+  mediaInfo: MediaInfo;
 }

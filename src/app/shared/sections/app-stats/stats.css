@@ -16,12 +16,10 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/assets/images/bg.png') no-repeat center;
+  background: url('/assets/images/backgrounds/bg.png') no-repeat center;
   opacity: .2;
-
 }
 
-/* ── Content ─────────────────────────────────────────── */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -35,7 +33,6 @@
   padding-bottom: 60px;
 }
 
-/* ── Badge pill ──────────────────────────────────────── */
 .badge {
   display: inline-block;
   padding: 8px 20px;
@@ -49,7 +46,6 @@
   text-transform: uppercase;
 }
 
-/* ── Heading ─────────────────────────────────────────── */
 .heading {
   margin: 0;
   font-size: 3rem;
@@ -58,7 +54,6 @@
   line-height: 1.1;
 }
 
-/* ── Subtext ─────────────────────────────────────────── */
 .subtext {
   margin: 0;
   font-size: 20px;
@@ -66,7 +61,6 @@
   max-width: 75%;
 }
 
-/* ── CTA Button ──────────────────────────────────────── */
 .cta-btn {
   margin-top: 4px;
   padding: 14px 32px;
@@ -75,7 +69,6 @@
   font-size: 16px;
 }
 
-/* ── Stats card ──────────────────────────────────────── */
 .stats-card {
   position: relative;
   z-index: 1;
@@ -90,7 +83,6 @@
   gap: 0;
 }
 
-/* ── Single stat item ────────────────────────────────── */
 .stat-item {
   display: flex;
   flex-direction: column;
@@ -107,7 +99,6 @@
   letter-spacing: -0.02em;
 }
 
-/* ── Stat label ──────────────────────────────────────── */
 .stat-label {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.85);
@@ -126,7 +117,6 @@
   max-width: 75%;
 }
 
-/* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-section {
     padding: 60px 20px;
