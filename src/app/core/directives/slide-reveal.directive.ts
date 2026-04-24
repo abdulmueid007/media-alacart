@@ -19,6 +19,8 @@ export class SlideRevealDirective implements AfterViewInit {
   private gsapService = inject(GsapService);
 
   @Input('appSlideReveal') direction: Direction = 'left';
+  @Input() once = false;
+  @Input() delay = 1;
 
   async ngAfterViewInit() {
     const loaded = await this.gsapService.loadGsap();
@@ -31,16 +33,16 @@ export class SlideRevealDirective implements AfterViewInit {
 
     switch (this.direction) {
       case 'left':
-        x = -120;
+        x = -150;
         break;
       case 'right':
-        x = 120;
+        x = 150;
         break;
       case 'up':
-        y = 80;
+        y = 150;
         break;
       case 'down':
-        y = -80;
+        y = -150;
         break;
     }
 
@@ -48,12 +50,15 @@ export class SlideRevealDirective implements AfterViewInit {
       x,
       y,
       opacity: 0,
-      duration: 0.9,
+      duration: this.delay,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: this.el.nativeElement,
+        once: this.once,
         start: 'top 85%',
-        toggleActions: 'play none none reset'
+        toggleActions: this.once
+          ? 'play none none none'
+          : 'play none none reset'
       }
     });
   }

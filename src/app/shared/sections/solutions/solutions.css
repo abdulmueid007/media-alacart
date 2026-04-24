@@ -22,10 +22,11 @@ h1 {
 }
 
 .highlight {
-  background: #ff2d55;
+  display: inline-block;
+  background: var(--color-brand);
   padding: 4px 8px;
-  border-radius: 4px;
-  color: black;
+  color: var(--color-black);
+  margin: 0 5px;
 }
 
 /* Grid */

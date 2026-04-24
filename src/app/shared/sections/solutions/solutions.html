@@ -7,7 +7,7 @@
 
       <h1>
         {{ solutionData.heading }}
-        <span class="highlight">{{ solutionData.highlightText }}</span>
+        <span class="highlight" [appSlideReveal]="'down'" [once]="true" [delay]=".5">{{ solutionData.highlightText }}</span>
         {{ solutionData.subheading }}
       </h1>
     </div>

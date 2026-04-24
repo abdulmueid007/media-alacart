@@ -6,16 +6,14 @@ import { HeroBanner } from '../../../core/model/home';
 import { CommonModule } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ButtonDirective } from '../../ui/button/button.directive';
-import {
-  NgmMotionDirective
-} from '@scripttype/ng-motion';
+import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 
   
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [IconComponent, CommonModule, NgxSkeletonLoaderModule, ButtonDirective, NgmMotionDirective],
+  imports: [IconComponent, CommonModule, NgxSkeletonLoaderModule, ButtonDirective, SlideRevealDirective],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })

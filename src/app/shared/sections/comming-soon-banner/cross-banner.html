@@ -1,24 +1,6 @@
 <div class="banners-container" #section>
-      <!-- First Banner - skewed right -->
-      <div class="banner-container banner-1" #topBanner
-      ngmMotion
-    [initial]="{
-      opacity: 0,
-      x: '200px',
-      rotate: -rotation
-    }"
-    [whileInView]="{
-      opacity: 1,
-      x: 0,
-      rotate: -rotation,
-      transition: {
-        delay: .2,
-          duration: 0.5,
-          ease: 'easeInOut'
-      }
-    }" 
-    [viewport]="{ once: true, margin: '-100px' }"
-      >
+      
+      <div class="banner-container banner-1" [appSlideReveal]="'right'" [once]="true">
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
             <span class="banner-text">{{ primaryText }}</span>
@@ -27,25 +9,9 @@
         </div>
       </div>
  
-      <!-- Second Banner - skewed left (opposite direction) -->
       <div class="banner-container banner-2" 
-        ngmMotion
-        [initial]="{
-          opacity: 0,
-          transform: 'translateX(200px) rotate(rotation)',
-          rotate: rotation
-        }"
-        [whileInView]="{
-          opacity: 1,
-          transform: 'translateX(0) rotate(rotation)',
-          rotate: rotation,
-          transition: {
-            delay: .2,
-            duration: 0.5,
-            ease: 'easeInOut'
-          }
-        }" 
-        [viewport]="{ once: true, margin: '-100px' }"
+      [appSlideReveal]="'left'"
+      [once]="true"
       >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">

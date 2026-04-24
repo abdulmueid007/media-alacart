@@ -3,9 +3,12 @@
 
     <div class="hero-text">
       <p class="badge">#1 MEDIA MARKETPLACE FOR ADVERTISERS &amp; AGENCIES</p>
-      <p class="bigger-impact">Bigger Impact</p>
-      <h1 class="main-title">Stronger Campaigns</h1>
-      <p class="tagline">Smarter Media Buying</p>
+      <p class="bigger-impact" [appSlideReveal]="'down'"
+          [once]="true">Bigger Impact</p>
+      <h1 class="main-title" [appSlideReveal]="'left'"
+          [once]="true">Stronger Campaigns</h1>
+      <p class="tagline" [appSlideReveal]="'up'"
+          [once]="true">Smarter Media Buying</p>
     </div>
 
     <div class="hero-visual">
@@ -35,42 +38,16 @@
           <button 
             appButton 
             class="hero-cta"
-            ngmMotion
-            [initial]="{
-              opacity: 0,
-              x: -80
-            }"
-            [whileInView]="{
-              opacity: 1,
-              x: 0,
-              transition: {
-                delay: .2,
-                duration: 0.5,
-                ease: 'easeInOut'
-              }
-            }"
-            [viewport]="{ once: true }"
+           [appSlideReveal]="'left'"
+            [once]="true"
           >Start your journey!</button>
 
           <button 
           appButton 
           class="hero-learn" 
           variant="outlined"
-          ngmMotion
-            [initial]="{
-              opacity: 0,
-              x: 80
-            }"
-            [whileInView]="{
-              opacity: 1,
-              x: 0,
-              transition: {
-                delay: .2,
-                duration: 0.5,
-                ease: 'easeInOut'
-              }
-            }"
-            [viewport]="{ once: true }"
+          [appSlideReveal]="'right'"
+          [once]="true"
           >
             <app-icon 
             [icon]="faPlayCircle"

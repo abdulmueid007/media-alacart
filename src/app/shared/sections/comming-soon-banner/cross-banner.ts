@@ -4,22 +4,18 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgmMotionDirective } from '@scripttype/ng-motion';
+import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 @Component({
   selector: 'app-cross-banner',
   templateUrl: './cross-banner.html',
   styleUrls: ['./cross-banner.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgmMotionDirective],
+  imports: [CommonModule, SlideRevealDirective],
 })
 
 export class CrossBanner {
   @Input({ required: true }) primaryText!: string;
   @Input({ required: true }) secondaryText!: string;
   @Input() speed: string = '20s';
-
-  get rotation(): number {
-    return window.innerWidth < 768 ? 8 : 5;
-  }
  
 }
