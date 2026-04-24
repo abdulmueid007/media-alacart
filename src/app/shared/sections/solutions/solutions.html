@@ -48,13 +48,11 @@
         ngmMotion
       [initial]="{
         opacity: 0,
-         x: i % 3 === 0 ? 80 : -80,
-         z: 0.01
+         x: i % 3 === 0 ? 80 : -80
       }"
       [whileInView]="{
         opacity: 1,
         x: 0,
-        z: 0.01,
         transition: {
           delay: i * 0.12,
           duration: 0.6,

@@ -40,17 +40,6 @@ a {
   text-decoration: none;
 }
 
-/*
- * iOS Safari: 2D translateX() from motion-dom may not paint until the element
- * gets its own compositor layer. Hint GPU without touching transform (inline
- * styles from ng-motion set the full transform).
- */
-[ngmMotion] {
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
 main {
   overflow: hidden;
 }
