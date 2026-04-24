@@ -55,8 +55,10 @@ export class SlideRevealDirective implements AfterViewInit {
       scrollTrigger: {
         trigger: this.el.nativeElement,
         once: this.once,
-        start: 'top 100%',
-        toggleActions: 'play none none none'
+        start: 'top 85%',
+        toggleActions: this.once
+          ? 'play none none none'
+          : 'play none none reset'
       }
     });
   }
