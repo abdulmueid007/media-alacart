@@ -4,10 +4,11 @@ import { SolutionCard } from '../../components/solution-card/solution-card';
 import { SolutionSection } from '../../../core/model/home';
 import { ButtonDirective } from '../../ui/button/button.directive';
 import { NgmMotionDirective } from '@scripttype/ng-motion';
+import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 
 @Component({
   selector: 'app-solutions-section',
-  imports: [CommonModule, SolutionCard, ButtonDirective, NgmMotionDirective],
+  imports: [CommonModule, SolutionCard, ButtonDirective, NgmMotionDirective, SlideRevealDirective],
   templateUrl: './solutions.html',
   styleUrl: './solutions.css',
 })
