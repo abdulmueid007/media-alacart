@@ -3,6 +3,7 @@
   width: 100%;
   margin: 3rem 0;
   display: flex;
+  overflow-x: clip;
 }
  
 .banner-container {
@@ -33,7 +34,10 @@
 .scroll-content {
   display: flex;
   animation: scroll-infinite var(--speed) linear infinite;
+  -webkit-animation: scroll-infinite var(--speed) linear infinite;
   will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .banner-text {
@@ -45,10 +49,19 @@
 
 @keyframes scroll-infinite {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes scroll-infinite {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

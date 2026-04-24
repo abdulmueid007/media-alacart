@@ -17,7 +17,7 @@
           ease: 'easeInOut'
       }
     }" 
-    [viewport]="{ once: true, margin: '-100px' }"
+    [viewport]="{ once: true, margin: '0px' }"
       >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">
@@ -26,9 +26,9 @@
           </div>
         </div>
       </div>
- 
+
       <!-- Second Banner - skewed left (opposite direction) -->
-      <div class="banner-container banner-2" 
+      <div class="banner-container banner-2"
         ngmMotion
         [initial]="{
           opacity: 0,
@@ -44,8 +44,8 @@
             duration: 0.5,
             ease: 'easeInOut'
           }
-        }" 
-        [viewport]="{ once: true, margin: '-100px' }"
+        }"
+        [viewport]="{ once: true, margin: '0px' }"
       >
         <div class="scroll-track" [style.--speed]="speed">
           <div class="scroll-content">

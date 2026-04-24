@@ -1,5 +1,6 @@
 .section {
   padding: 60px;
+  overflow-x: clip;
   background: 
     linear-gradient(to right, rgb(5 24 26 / 70%) 0%, rgb(21 20 20 / 90%) 100%), 
     linear-gradient(to bottom, #152424 0%, #000000 60%, #000000 100%);
