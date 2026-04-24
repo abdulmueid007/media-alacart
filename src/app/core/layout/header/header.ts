@@ -13,8 +13,9 @@ import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
 export class Header {
 
   readonly itemVariants: Variants = {
-    visible: { opacity: 1, y: 0, x: 0 },
-    hidden: { opacity: 0, y: 20, x: -12 },
+    // Tiny Z promotes a layer on iOS WebKit; keeps translateX/translateY reliable.
+    visible: { opacity: 1, y: 0, x: 0, z: 0.01 },
+    hidden: { opacity: 0, y: 20, x: -12, z: 0.01 },
 } ;
 
   readonly navLinks = [

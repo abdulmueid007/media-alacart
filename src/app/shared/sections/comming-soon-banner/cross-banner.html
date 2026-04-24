@@ -5,11 +5,13 @@
     [initial]="{
       opacity: 0,
       x: '200px',
+      z: 0.01,
       rotate: -rotation
     }"
     [whileInView]="{
       opacity: 1,
       x: 0,
+      z: 0.01,
       rotate: -rotation,
       transition: {
         delay: .2,
@@ -32,12 +34,14 @@
         ngmMotion
         [initial]="{
           opacity: 0,
-          transform: 'translateX(200px) rotate(rotation)',
+          x: '200px',
+          z: 0.01,
           rotate: rotation
         }"
         [whileInView]="{
           opacity: 1,
-          transform: 'translateX(0) rotate(rotation)',
+          x: 0,
+          z: 0.01,
           rotate: rotation,
           transition: {
             delay: .2,
