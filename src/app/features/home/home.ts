@@ -1,4 +1,4 @@
-import { Component, DOCUMENT, Inject, inject, Renderer2, signal } from '@angular/core';
+import { Component, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, catchError, of, tap, switchMap } from 'rxjs';
 
@@ -34,7 +34,8 @@ export class Home {
 
   private reloadTrigger = signal(0);
 
-  constructor(private renderer: Renderer2, @Inject(DOCUMENT) private doc: Document) {}
+  private renderer = inject(Renderer2);
+  private doc = inject(DOCUMENT);
 
   homeData = toSignal<HomeResponse | null>(
     toObservable(this.reloadTrigger).pipe(
@@ -50,7 +51,7 @@ export class Home {
             this.removeFullHeight();
           }),
 
-          catchError(err => {
+          catchError(() => {
             this.error.set(true);
             this.loader.hide();
             return of(null);

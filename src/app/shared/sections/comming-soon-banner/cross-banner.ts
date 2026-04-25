@@ -16,6 +16,6 @@ import { SlideRevealDirective } from '../../../core/directives/slide-reveal.dire
 export class CrossBanner {
   @Input({ required: true }) primaryText!: string;
   @Input({ required: true }) secondaryText!: string;
-  @Input() speed: string = '20s';
+  @Input() speed = '20s';
  
 }

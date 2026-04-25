@@ -1,9 +1,12 @@
 {
   "printWidth": 100,
   "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
   "overrides": [
     {
-      "files": "*.html",
+      "files": ["*.html", "**/*.html"],
       "options": {
         "parser": "angular"
       }

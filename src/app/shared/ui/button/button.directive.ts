@@ -9,9 +9,9 @@ type ButtonVariant = 'primary' | 'outlined';
 export class ButtonDirective {
 
   @Input() variant: ButtonVariant = 'primary';
-  @Input() textColor: string = '#ffffff';
+  @Input() textColor = '#ffffff';
 
-  @Input('class') userClass = '';
+  @Input() userClass = '';
 
   @HostBinding('style.color')
   get color(): string {

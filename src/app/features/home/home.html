@@ -2,8 +2,7 @@
   [class.h-100]="error()"
   [class.flex-center]="error()">
 
-
-  <ng-container *ngIf="!error() && homeData() as home; else errorContent">
+@if (!error() && homeData(); as home) {
 
     <app-hero [heroBanner]="home.hero"></app-hero>
     <app-cross-banner 
@@ -15,9 +14,8 @@
     <app-solutions-section [solutionData]="home.solutions"/>
     <app-stats [statsData]="home.statsData"/>
     <app-media [mediaInfo]="home.mediaInfo"/>
-  </ng-container>
+} @else {
 
-<ng-template #errorContent>
   <div class="absolute-center error-container">
     <h2>Something went wrong.</h2>
 
@@ -30,10 +28,12 @@
           : 'Try Again' }}
     </button>
 
-    <p *ngIf="retryCount() > 0">
-      Attempts: {{ retryCount() }} / {{ maxRetries }}
-    </p>
+    @if(retryCount() > 0){
+      <p >
+        Attempts: {{ retryCount() }} / {{ maxRetries }}
+      </p>
+    }
   </div>
-</ng-template>
+}
 
 </main>

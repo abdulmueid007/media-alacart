@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonDirective } from '../../../shared/ui/button/button.directive';
 import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
@@ -30,7 +30,9 @@ export class Header {
   isMenuOpen = signal(false);
   isScrolled = false;
 
-  constructor(private router: Router) {
+  private router = inject(Router);
+
+  constructor() {
     this.router.events.subscribe(() => {
       this.isMenuOpen.set(false);
     });

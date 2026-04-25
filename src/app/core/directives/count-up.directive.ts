@@ -3,27 +3,28 @@ import {
   ElementRef,
   Input,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  inject
 } from '@angular/core';
 import { CountUp } from 'countup.js';
 
 @Directive({
-  selector: '[countUp]',
+  selector: '[appCountUp]',
   standalone: true
 })
 export class CountUpDirective implements AfterViewInit, OnDestroy {
 
-  @Input('countUp') value: string | number = 0;
+  @Input('appCountUp') value: string | number = 0;
   @Input() duration = 2;
-  @Input() threshold = 0.4; // % visible before start
+  @Input() threshold = 0.4;
   @Input() once = true;
 
   private observer?: IntersectionObserver;
   private counter?: CountUp;
   private started = false;
 
-  constructor(private el: ElementRef<HTMLElement>) {}
-
+  private el = inject(ElementRef<HTMLElement>);
+  
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver(
       ([entry]) => {

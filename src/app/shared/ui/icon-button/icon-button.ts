@@ -11,5 +11,5 @@ import { IconComponent } from '../icon-component/icon-component';
 })
 export class IconButton {
   faArrowRight = faArrowRight;
-  @Input() iconColor: string = '#ffffff';
+  @Input() iconColor = '#ffffff';
 }

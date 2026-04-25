@@ -3,7 +3,8 @@ import {
   ElementRef,
   Input,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  inject
 } from '@angular/core';
 import { ScrollAnimationService } from '../services/scroll-animation.service';
 
@@ -16,14 +17,12 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
   @Input() duration?: number;
   @Input() delay?: number;
   @Input() threshold?: number;
-  @Input() once: boolean = true;
+  @Input() once = true;
 
   private observer!: IntersectionObserver;
 
-  constructor(
-    private el: ElementRef,
-    private config: ScrollAnimationService
-  ) {}
+  private el = inject(ElementRef);
+  private config = inject(ScrollAnimationService);
 
   ngOnInit() {
     const nativeEl = this.el.nativeElement;

@@ -14,19 +14,22 @@
   </div>
 
   <div class="stats-card">
+    @for (stat of statsData.stats;track stat.label; let last = $last){
     <div
-      *ngFor="let stat of statsData.stats; let last = last"
       class="stat-item"
       [class.no-divider]="last"
     >
-        <span class="stat-value" [countUp]="stat.value"></span> 
+        <span class="stat-value" [appCountUp]="stat.value"></span> 
        
       <span class="stat-label">{{ stat.label }}</span>
     </div>
+    }
   </div>
   </div>
   
-  <div class="members" *ngIf="statsData.bannerImage">
-    <img [src]="statsData.bannerImage" />
-  </div>
+  @if(statsData.bannerImage){
+    <div class="members">
+      <img [src]="statsData.bannerImage" alt="banner-image"/>
+    </div>
+  }
 </section>

@@ -1,15 +1,17 @@
-<div class="skeleton" *ngIf="!loaded">
-  <ngx-skeleton-loader
-  appearance="square"
-  animation="pulse"
-  [theme]="{
-      height: '100%',
-      width: '100%',
-      borderRadius: borderRadius,
-      background: 'rgb(125 122 122 / .3)',
-      margin: 0
-  }" />
-</div>
+@if(!loaded){
+  <div class="skeleton">
+    <ngx-skeleton-loader
+    appearance="square"
+    animation="pulse"
+    [theme]="{
+        height: '100%',
+        width: '100%',
+        borderRadius: borderRadius,
+        background: 'rgb(125 122 122 / .3)',
+        margin: 0
+    }" />
+  </div>
+}
 
 <img
   [src]="src"

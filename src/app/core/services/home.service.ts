@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -11,7 +11,7 @@ import { HomeResponse } from '../model/home.model';
 export class HomeService {
   private url = `${environment.apiBaseUrl}${API_PATHS.HOME}`;
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   getHomeData(): Observable<HomeResponse[]> {
     return this.http.get<HomeResponse[]>(this.url);
