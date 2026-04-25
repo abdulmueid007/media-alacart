@@ -49,16 +49,16 @@
 }
 
 .item.is-avatar {
-  width: 68px;
-  height: 68px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
-  background: #13131a;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: var(--color-surface);
+  border: 1.5px solid var(--white-20);
   box-shadow:
     0 0 0 5px rgba(255, 255, 255, 0.04),
     0 8px 32px rgba(0, 0, 0, 0.55);
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .avatar-img {
@@ -86,7 +86,7 @@
   }
 
   .item.is-avatar {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 }

@@ -1,8 +1,8 @@
 <div class="container" #containerEl>
   <svg class="orbits" width="100%" height="100%" aria-hidden="true">
-    <path class="orbit-path orbit-inner" [attr.d]="arcPaths[0]" />
-    <path class="orbit-path orbit-middle" [attr.d]="arcPaths[1]" />
-    <path class="orbit-path orbit-outer" [attr.d]="arcPaths[2]" />
+    <path id="orbit-path-0" class="orbit-path orbit-inner" [attr.d]="arcPaths[0]" />
+    <path id="orbit-path-1" class="orbit-path orbit-middle" [attr.d]="arcPaths[1]" />
+    <path id="orbit-path-2" class="orbit-path orbit-outer" [attr.d]="arcPaths[2]" />
   </svg>
 
   @for (item of items; track item.image + item.phaseFrac) {

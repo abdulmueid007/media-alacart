@@ -5,7 +5,6 @@ import {
   Component,
   ElementRef,
   Input,
-  NgZone,
   OnChanges,
   OnDestroy,
   QueryList,
@@ -14,6 +13,8 @@ import {
   ViewChildren,
   inject,
 } from '@angular/core';
+import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { OrbitalAvatar } from '../../../core/model/orbital-network.model';
 import {
   CX_FRAC,
@@ -22,6 +23,8 @@ import {
   ORBITS,
   STATIC_DOTS,
 } from '../../../core/constants/orbital-constants';
+
+gsap.registerPlugin(MotionPathPlugin);
 
 @Component({
   selector: 'app-orbital-network',
@@ -37,17 +40,15 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
   @ViewChildren('avatarEl') private avatarElsRef!: QueryList<ElementRef<HTMLElement>>;
   @ViewChildren('dotEl') private dotElsRef!: QueryList<ElementRef<HTMLElement>>;
 
-  private zone = inject(NgZone);
   private cdr = inject(ChangeDetectorRef);
 
   items: OrbitalAvatar[] = [];
-  arcPaths: string[] = ['', '', ''];
+  arcPaths: string[] = [];
   readonly dots = STATIC_DOTS;
 
   private cw = 0;
   private ch = 0;
-  private animId = 0;
-  private startTime: number | null = null;
+  private tweens: gsap.core.Tween[] = [];
   private resizeObserver?: ResizeObserver;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -62,25 +63,19 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
 
     const container = this.containerRef.nativeElement;
     this.measure(container);
+    this.cdr.detectChanges();
+    this.startAnimations();
 
     this.resizeObserver = new ResizeObserver(() => {
       this.measure(container);
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
+      this.restartAnimations();
     });
     this.resizeObserver.observe(container);
-
-    this.zone.runOutsideAngular(() => {
-      const loop = (ts: number) => {
-        if (!this.startTime) this.startTime = ts;
-        this.tick((ts - this.startTime) / 1000);
-        this.animId = requestAnimationFrame(loop);
-      };
-      this.animId = requestAnimationFrame(loop);
-    });
   }
 
   ngOnDestroy(): void {
-    cancelAnimationFrame(this.animId);
+    this.tweens.forEach((t) => t.kill());
     this.resizeObserver?.disconnect();
   }
 
@@ -88,12 +83,11 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
     const rect = el.getBoundingClientRect();
     this.cw = rect.width;
     this.ch = rect.height;
-
     this.arcPaths = ORBITS.map((_, i) => this.buildArcPath(i));
   }
 
   private buildArcPath(orbitIdx: number): string {
-    const r = this.radius(orbitIdx);
+    const r = (this.cw / 2) * ORBITS[orbitIdx].rFrac;
     const cx = this.cw * CX_FRAC;
     const cy = this.ch * CY_FRAC;
     const r3 = r.toFixed(3);
@@ -104,60 +98,65 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
     ].join(' ');
   }
 
-  private radius(orbitIdx: number): number {
-    return (this.cw / 2) * ORBITS[orbitIdx].rFrac;
-  }
-
-  private getXY(orbitIdx: number, t: number): { x: number; y: number } {
-    const r = this.radius(orbitIdx);
-    return {
-      x: this.cw * CX_FRAC + r * Math.cos(t),
-      y: this.ch * CY_FRAC + r * Math.sin(t),
-    };
-  }
-
-  private tick(elapsed: number): void {
-    if (!this.cw || !this.ch) return;
-
-    const els = this.avatarElsRef.toArray();
-
-    for (let i = 0; i < this.items.length; i++) {
-      const el = els[i]?.nativeElement;
-      if (!el) continue;
-
-      const avatar = this.items[i];
-      const orbit = ORBITS[avatar.orbitIdx];
-
-      const phase = (((avatar.phaseFrac + elapsed * orbit.speed) % 1) + 1) % 1;
-      const angle = Math.PI * (1 - phase);
-
-      const { x, y } = this.getXY(avatar.orbitIdx, angle);
-      const half = el.offsetWidth / 2;
-
-      const opacity =
-        phase < EDGE_FADE ? phase / EDGE_FADE : phase > 1 - EDGE_FADE ? (1 - phase) / EDGE_FADE : 1;
-
-      el.style.transform = `translate(${x - half}px, ${y - half}px)`;
-      el.style.opacity = opacity.toFixed(3);
-    }
-
+  private startAnimations(savedPhases?: number[]): void {
+    const avatarEls = this.avatarElsRef.toArray();
     const dotEls = this.dotElsRef.toArray();
-    for (let i = 0; i < STATIC_DOTS.length; i++) {
+    let idx = 0;
+
+    this.items.forEach((avatar, i) => {
+      const el = avatarEls[i]?.nativeElement;
+      if (!el) return;
+      const tween = this.orbitTween(el, avatar.orbitIdx);
+      tween.progress(savedPhases?.[idx] ?? avatar.phaseFrac);
+      this.tweens.push(tween);
+      idx++;
+    });
+
+    STATIC_DOTS.forEach((dot, i) => {
       const el = dotEls[i]?.nativeElement;
-      if (!el) continue;
+      if (!el) return;
+      const tween = this.orbitTween(el, dot.orbitIdx);
+      tween.progress(savedPhases?.[idx] ?? dot.angleFrac);
+      this.tweens.push(tween);
+      idx++;
+    });
+  }
 
-      const dot = STATIC_DOTS[i];
-      const orbit = ORBITS[dot.orbitIdx];
-      const phase = (((dot.angleFrac + elapsed * orbit.speed) % 1) + 1) % 1;
-      const angle = Math.PI * (1 - phase);
-      const { x, y } = this.getXY(dot.orbitIdx, angle);
-      const half = el.offsetWidth / 2;
+  private restartAnimations(): void {
+    const savedPhases = this.tweens.map((t) => {
+      const dur = t.duration();
+      return dur > 0 ? (t.time() % dur) / dur : 0;
+    });
+    this.tweens.forEach((t) => t.kill());
+    this.tweens = [];
+    this.startAnimations(savedPhases);
+  }
 
-      const opacity =
-        phase < EDGE_FADE ? phase / EDGE_FADE : phase > 1 - EDGE_FADE ? (1 - phase) / EDGE_FADE : 1;
+  private orbitTween(el: HTMLElement, orbitIdx: number): gsap.core.Tween {
+    const pathId = `orbit-path-${orbitIdx}`;
+    const duration = 1 / ORBITS[orbitIdx].speed;
 
-      el.style.transform = `translate(${x - half}px, ${y - half}px)`;
-      el.style.opacity = opacity.toFixed(3);
-    }
+    const tween: gsap.core.Tween = gsap.to(el, {
+      duration,
+      ease: 'none',
+      repeat: -1,
+      motionPath: {
+        path: `#${pathId}`,
+        align: `#${pathId}`,
+        alignOrigin: [0.5, 0.5],
+      },
+      onUpdate() {
+        const phase = (tween.time() % duration) / duration;
+        const opacity =
+          phase < EDGE_FADE
+            ? phase / EDGE_FADE
+            : phase > 1 - EDGE_FADE
+              ? (1 - phase) / EDGE_FADE
+              : 1;
+        el.style.opacity = opacity.toFixed(3);
+      },
+    });
+
+    return tween;
   }
 }
