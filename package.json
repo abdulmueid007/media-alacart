@@ -8,9 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "check": "yarn lint && yarn format:check"
+    "lint:check": "yarn lint && yarn format:check"
   },
   "private": true,
   "packageManager": "yarn@1.22.22",
