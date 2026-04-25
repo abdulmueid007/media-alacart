@@ -1,8 +1,8 @@
 # MediaAlacart
 
-A modern Angular 21 application built with TypeScript, Tailwind CSS, ESLint, Prettier, and Vitest.
+A modern Angular 21 application built with TypeScript, ESLint, Prettier, and Vitest.
 
-This project was generated using [Angular CLI](https://angular.dev/) version **21.2.7**.
+This project was generated using [Angular CLI](https://angular.dev/) version **21.2.8**.
 
 ---
 
@@ -10,7 +10,7 @@ This project was generated using [Angular CLI](https://angular.dev/) version **2
 
 Before running the project, make sure the following are installed:
 
-- **Node.js** (Latest LTS recommended)
+- **Node.js** (24.13.0)
 - **Yarn** `1.22.22`
 
 Check versions:
@@ -23,6 +23,7 @@ yarn -v
 
 cd media-alacart
 2. Install Dependencies
+nvm use
 yarn install
 3. Run Development Server
 yarn start
@@ -44,21 +45,16 @@ yarn start
 Runs:
 
 ng serve
-🏗 Build for Production
+🏗 Build for deployment
 yarn build
 
-Creates an optimized production build inside:
+Creates an optimized build inside:
 
 dist/
 👀 Watch Mode
 yarn watch
 
 Runs continuous builds in development mode.
-
-🧪 Run Unit Tests
-yarn test
-
-Runs tests using Vitest.
 
 ✅ Run Lint Checks
 yarn lint
@@ -115,7 +111,6 @@ media-alacart/
 🛠 Tech Stack
 Angular 21
 TypeScript
-Tailwind CSS
 RxJS
 ESLint
 Prettier

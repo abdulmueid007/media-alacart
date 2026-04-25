@@ -11,7 +11,8 @@
     "lint:fix": "ng lint --fix",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "lint:check": "yarn lint && yarn format:check"
+    "typecheck": "tsc --noEmit",
+    "lint:check": "yarn lint && yarn format:check && yarn typecheck"
   },
   "private": true,
   "packageManager": "yarn@1.22.22",
@@ -45,7 +46,7 @@
     "jsdom": "^28.0.0",
     "postcss": "^8.5.10",
     "prettier": "^3.8.3",
-    "typescript": "~5.9.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "8.56.1",
     "vitest": "^4.0.8"
   }
