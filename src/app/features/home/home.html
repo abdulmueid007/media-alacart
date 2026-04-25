@@ -19,7 +19,7 @@
       </button>
 
       @if (retryCount() > 0) {
-        <p>Attempt: {{ retryCount() }} / {{ maxRetries }}</p>
+        <p>Attempts: {{ retryCount() }} / {{ maxRetries }}</p>
       }
     </div>
   }
