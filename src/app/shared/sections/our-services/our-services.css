@@ -40,10 +40,9 @@
 
 /* 🔥 Expand hovered card */
 .cards app-service-card:hover {
-  width: 300px;
+  width: 400px;
 }
 
-/* 📱 Mobile */
 @media (max-width: 768px) {
   .services {
     padding: 40px 20px;
@@ -53,6 +52,9 @@
     flex-direction: column;
     height: auto;
     align-items: center;
+  }
+  .cards app-service-card:hover {
+    width: 300px;
   }
 
   .cards app-service-card,

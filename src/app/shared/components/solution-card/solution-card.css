@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.card:hover {
+.highlight {
   transform: translateY(-5px);
   background: var(--gradient-brand);
   color: var(--color-black);
