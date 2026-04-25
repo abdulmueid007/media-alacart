@@ -13,7 +13,7 @@
   border-radius: 24px;
   padding: 60px 40px;
   text-align: center;
-  color: #ffffff;
+  color: var(--color-text);
   width: 100%;
   max-width: 1200px;
 }
@@ -44,12 +44,12 @@
   align-items: center;
   gap: 12px;
   font-size: 1.1rem;
-  color: #d1d1d1;
+  color: var(--color-muted);
 }
 
 .icon {
-  background: #ff2d55;
-  color: #fff;
+  background: var(--color-brand);
+  color: var(--color-text);
   width: 28px;
   height: 28px;
   display: flex;

@@ -7,6 +7,15 @@
   --color-text: #e8e8f0;
   --color-black: #000000;
   --color-footer: #181818;
+  --color-charcoal-blue: #1a1c20;
+  --color-jet-gray: #171717;
+  --color-gunmetal-gray: #434746;
+  --color-deep-teal-gray: #152424;
+  --color-white: 255 255 255;
+  --white-5: rgba(var(--color-white) / 0.5);
+  --white-10: rgba(var(--color-white) / 0.1);
+  --white-20: rgba(var(--color-white) / 0.1);
+  --white-75: rgba(var(--color-white) / 0.75);
   --gradient-brand: linear-gradient(135deg, var(--color-brand), var(--color-brand-light));
 }
 
@@ -86,7 +95,7 @@ main {
 .error-container {
   text-align: center;
   padding: 20px;
-  color: #fff;
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
   justify-content: center;

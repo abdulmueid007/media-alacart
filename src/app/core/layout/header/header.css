@@ -86,7 +86,7 @@
 }
 
 .nav-link:hover {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .nav-link.active {
@@ -126,7 +126,7 @@
   padding: 0.45rem 0.55rem;
 
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--white-10);
   background: none;
 
   cursor: pointer;
@@ -135,7 +135,7 @@
 
 .hamburger span {
   height: 2px;
-  background: #fff;
+  background: var(--color-text);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -211,9 +211,9 @@
 }
 
 .mobile-link:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--white-5);
   padding-left: 1.3rem;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .mobile-link.active {

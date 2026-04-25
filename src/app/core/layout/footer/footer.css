@@ -40,7 +40,7 @@
   height: 40px;
   align-items: center;
   justify-content: center;
-  background: #1a1c20;
+  background: var(--color-charcoal-blue);
   border-radius: 50%;
   color: var(--color-text);
   transition: 0.3s;

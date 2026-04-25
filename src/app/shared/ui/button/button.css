@@ -29,7 +29,7 @@
 /* ── Primary (pink gradient) ──────────── */
 .btn-primary {
   background: var(--gradient-brand);
-  color: #ffffff;
+  color: var(--color-text);
   box-shadow: 0 8px 28px rgba(255, 45, 85, 0.38);
 }
 
@@ -50,8 +50,8 @@
 /* ── Dark glass ───────────────────────── */
 .btn-outlined {
   background: rgba(8, 8, 14, 0.78);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--color-text);
+  border-color: var(--white-20);
   font-weight: 500;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
