@@ -10,7 +10,6 @@ import { OurServices } from '../../shared/sections/our-services/our-services';
 import { HomeService } from '../../core/services/home.service';
 import { HomeResponse } from '../../core/model/home.model';
 import { CommonModule } from '@angular/common';
-import { Loader } from '../../shared/ui/loader/loader';
 import { Solutions } from '../../shared/sections/solutions/solutions';
 import { Stats } from '../../shared/sections/app-stats/stats';
 import { Media } from '../../shared/sections/media/media';
@@ -21,7 +20,7 @@ import { LoaderService } from '../../core/services/loader.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Loader, Solutions, Stats, Media],  
+  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media],  
   templateUrl: './home.html',
 })
 export class Home {
@@ -64,6 +63,7 @@ export class Home {
 
   retry() {
     if (this.retryCount() >= this.maxRetries) return;
+    this.loader.show();
 
     this.retryCount.update(c => c + 1);
     this.reloadTrigger.update(v => v + 1);

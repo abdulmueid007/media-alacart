@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { SolutionCardType } from '../../../core/model/home.model';
 import { CommonModule } from '@angular/common';
 import { IconButton } from '../../ui/icon-button/icon-button';
 import { IconButtonDirective } from '../../ui/icon-button/icon-button-directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
+import { SolutionCardType } from '../../../core/model/solution.model';
 
 @Component({
   selector: 'app-solution-card',

@@ -2,11 +2,11 @@ import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
-import { HeroBanner } from '../../../core/model/home.model';
 import { CommonModule } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ButtonDirective } from '../../ui/button/button.directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
+import { HeroBanner } from '../../../core/model/hero-banner.model';
 
   
 

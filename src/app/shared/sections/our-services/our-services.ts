@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ServiceCard } from '../../components/service-card/service-card';
 import { faGears } from '@fortawesome/free-solid-svg-icons';
 import { IconComponent } from '../../ui/icon-component/icon-component';
-import { Service } from '../../../core/model/home.model';
+import { Service } from '../../../core/model/service.model';
 @Component({
   selector: 'app-services-section',
   standalone: true,
