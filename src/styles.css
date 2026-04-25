@@ -11,9 +11,9 @@
   --color-gunmetal-gray: #434746;
   --color-deep-teal-gray: #152424;
   --color-white: 255 255 255;
-  --white-5: rgba(var(--color-white) / 0.5);
   --white-10: rgba(var(--color-white) / 0.1);
-  --white-20: rgba(var(--color-white) / 0.1);
+  --white-20: rgba(var(--color-white) / 0.2);
+  --white-50: rgba(var(--color-white) / 0.5);
   --white-75: rgba(var(--color-white) / 0.75);
   --gradient-brand: linear-gradient(135deg, var(--color-brand), var(--color-brand-light));
 }

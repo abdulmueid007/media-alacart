@@ -12,11 +12,12 @@ import { Solutions } from '../../shared/sections/solutions/solutions';
 import { Stats } from '../../shared/sections/app-stats/stats';
 import { Media } from '../../shared/sections/media/media';
 import { LoaderService } from '../../core/services/loader.service';
+import { OrbitalNetwork } from '../../shared/sections/orbital-network/orbital-network';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media],
+  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media, OrbitalNetwork],
   templateUrl: './home.html',
 })
 export class Home {
