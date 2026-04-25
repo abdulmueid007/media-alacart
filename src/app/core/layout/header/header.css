@@ -9,7 +9,6 @@
   background: var(--color-surface);
 }
 
-/* ── Header Shell ───────────────────────────── */
 .header {
   width: 100%;
   z-index: 100;
@@ -33,7 +32,6 @@
   border-bottom-color: rgba(255, 45, 85, 0.35);
 }
 
-/* ── Inner Layout ───────────────────────────── */
 .header-inner {
   display: flex;
   align-items: center;
@@ -46,7 +44,6 @@
   gap: 2rem;
 }
 
-/* ── Logo ───────────────────────────────────── */
 .logo {
   display: flex;
   align-items: center;
@@ -63,7 +60,6 @@
   height: 38px;
 }
 
-/* ── Desktop Nav ───────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
@@ -114,7 +110,6 @@
   transform: scaleX(1);
 }
 
-/* ── Hamburger ─────────────────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -169,7 +164,6 @@
   background: var(--color-surface);
 }
 
-/* ── Mobile Menu ───────────────────────────── */
 .mobile-nav {
   position: absolute;
   top: 100%;
@@ -232,7 +226,6 @@
   }
 }
 
-/* ── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
   .nav {
     display: none;

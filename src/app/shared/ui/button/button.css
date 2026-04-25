@@ -26,7 +26,6 @@
     opacity 0.2s ease;
 }
 
-/* ── Primary (pink gradient) ──────────── */
 .btn-primary {
   background: var(--gradient-brand);
   color: var(--color-text);
@@ -47,7 +46,6 @@
   transform: scale(0.97);
 }
 
-/* ── Dark glass ───────────────────────── */
 .btn-outlined {
   background: rgba(8, 8, 14, 0.78);
   color: var(--color-text);

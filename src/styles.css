@@ -1,4 +1,3 @@
-/* ── Global tokens (available everywhere via var()) ── */
 :root {
   --color-brand: #eb3353;
   --color-brand-light: #de2572;
@@ -19,7 +18,6 @@
   --gradient-brand: linear-gradient(135deg, var(--color-brand), var(--color-brand-light));
 }
 
-/* ── Base resets ──────────────────────────────────── */
 *,
 *::before,
 *::after {
