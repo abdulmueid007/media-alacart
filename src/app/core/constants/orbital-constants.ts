@@ -9,7 +9,6 @@ export const ORBITS: OrbitConfig[] = [
   { rFrac: 0.85, speed: 0.011 },
 ];
 
-export const DOT_SIZE = 10;
 export const EDGE_FADE = 0.06;
 
 export const STATIC_DOTS: DotConfig[] = [

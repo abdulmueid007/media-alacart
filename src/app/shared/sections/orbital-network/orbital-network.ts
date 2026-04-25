@@ -18,7 +18,6 @@ import { OrbitalAvatar } from '../../../core/model/orbital-network.model';
 import {
   CX_FRAC,
   CY_FRAC,
-  DOT_SIZE,
   EDGE_FADE,
   ORBITS,
   STATIC_DOTS,
@@ -86,8 +85,9 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   private measure(el: HTMLElement): void {
-    this.cw = el.offsetWidth;
-    this.ch = el.offsetHeight;
+    const rect = el.getBoundingClientRect();
+    this.cw = rect.width;
+    this.ch = rect.height;
 
     this.arcPaths = ORBITS.map((_, i) => this.buildArcPath(i));
   }
@@ -96,11 +96,11 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
     const r = this.radius(orbitIdx);
     const cx = this.cw * CX_FRAC;
     const cy = this.ch * CY_FRAC;
-    const r1 = r.toFixed(1);
+    const r3 = r.toFixed(3);
     return [
-      `M ${(cx - r).toFixed(1)},${cy.toFixed(1)}`,
-      `A ${r1},${r1} 0 0 0`,
-      `${(cx + r).toFixed(1)},${cy.toFixed(1)}`,
+      `M ${(cx - r).toFixed(3)},${cy.toFixed(3)}`,
+      `A ${r3},${r3} 0 0 0`,
+      `${(cx + r).toFixed(3)},${cy.toFixed(3)}`,
     ].join(' ');
   }
 
@@ -151,7 +151,7 @@ export class OrbitalNetwork implements AfterViewInit, OnChanges, OnDestroy {
       const phase = (((dot.angleFrac + elapsed * orbit.speed) % 1) + 1) % 1;
       const angle = Math.PI * (1 - phase);
       const { x, y } = this.getXY(dot.orbitIdx, angle);
-      const half = DOT_SIZE / 2;
+      const half = el.offsetWidth / 2;
 
       const opacity =
         phase < EDGE_FADE ? phase / EDGE_FADE : phase > 1 - EDGE_FADE ? (1 - phase) / EDGE_FADE : 1;

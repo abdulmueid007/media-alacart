@@ -80,7 +80,6 @@
 
 @media (max-width: 768px) {
   .container {
-    height: 400px;
     min-height: auto;
   }
 
