@@ -12,12 +12,14 @@
 
     <!-- Desktop Navigation -->
     <nav class="nav">
-      @for (link of navLinks; track link.path) {
+      @for (link of navLinks; track link.path; let i = $index) {
         <a
           class="nav-link"
           [routerLink]="link.path"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          appSlideReveal
+          [delay]="i * 200"
         >
           {{ link.label }}
         </a>

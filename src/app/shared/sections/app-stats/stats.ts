@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonDirective } from '../../ui/button/button.directive';
 import { CountUpDirective } from '../../../core/directives/count-up.directive';
-import { StatsData } from '../../../core/model/home';
+import { StatsData } from '../../../core/model/home.model';
 
 @Component({
   selector: 'app-stats',

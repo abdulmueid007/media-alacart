@@ -3,7 +3,7 @@ import { faAngleRight, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
 import { ButtonDirective } from '../../ui/button/button.directive';
-import { MediaInfo } from '../../../core/model/home';
+import { MediaInfo } from '../../../core/model/home.model';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 
 @Component({

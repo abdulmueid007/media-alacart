@@ -2,11 +2,12 @@ import { Component, HostListener, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonDirective } from '../../../shared/ui/button/button.directive';
 import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
+import { SlideRevealDirective } from '../../directives/slide-reveal.directive';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ButtonDirective, NgmMotionDirective],
+  imports: [RouterModule, ButtonDirective, NgmMotionDirective, SlideRevealDirective],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
@@ -26,7 +27,7 @@ export class Header {
     { label: 'About Us',       path: '/about' },
   ];
 
-  isMenuOpen = signal(true);
+  isMenuOpen = signal(false);
   isScrolled = false;
 
   constructor(private router: Router) {

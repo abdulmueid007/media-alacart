@@ -38,6 +38,7 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
     nativeEl.style.transitionTimingFunction = 'ease';
     nativeEl.style.transitionDelay = `${delay}ms`;
     nativeEl.classList.add('aos-init', this.animation);
+    nativeEl.classList.remove('aos-animate'); 
 
     this.observer = new IntersectionObserver(
       ([entry]) => {

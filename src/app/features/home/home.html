@@ -1,10 +1,8 @@
-<main>
+<main [class.relative]="error()"
+  [class.h-100]="error()"
+  [class.flex-center]="error()">
 
-  <ng-container *ngIf="loading(); else content">
-  <app-loader />
-</ng-container>
 
-<ng-template #content>
   <ng-container *ngIf="!error() && homeData() as home; else errorContent">
 
     <app-hero [heroBanner]="home.hero"></app-hero>
@@ -18,7 +16,6 @@
     <app-stats [statsData]="home.statsData"/>
     <app-media [mediaInfo]="home.mediaInfo"/>
   </ng-container>
-</ng-template>
 
 <ng-template #errorContent>
   <div class="absolute-center error-container">
