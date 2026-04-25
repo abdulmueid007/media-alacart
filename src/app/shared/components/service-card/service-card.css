@@ -57,7 +57,7 @@
   padding: 20px;
 
   color: white;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
 
   opacity: 0;
   display: none;
@@ -67,15 +67,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  
 }
 
 .overlay > div:first-child {
-  max-width: 80%;  /* prevents overlap with CTA */
+  max-width: 80%; /* prevents overlap with CTA */
 }
 
-.overlay h2{
-    font-size: 24px;
+.overlay h2 {
+  font-size: 24px;
 }
 
 /* 🔥 Hide vertical label on hover */

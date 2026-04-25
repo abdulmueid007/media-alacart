@@ -1,19 +1,13 @@
-
-
 /* ── Global tokens (available everywhere via var()) ── */
 :root {
-  --color-brand:       #EB3353;
-  --color-brand-light: #DE2572;
-  --color-surface:     #0d0d0f;
-  --color-muted:       #9898aa;
-  --color-text:        #e8e8f0;
-  --color-black:        #000000;
-  --color-footer:        #181818;
-  --gradient-brand: linear-gradient(
-    135deg,
-    var(--color-brand),
-    var(--color-brand-light)
-  );
+  --color-brand: #eb3353;
+  --color-brand-light: #de2572;
+  --color-surface: #0d0d0f;
+  --color-muted: #9898aa;
+  --color-text: #e8e8f0;
+  --color-black: #000000;
+  --color-footer: #181818;
+  --gradient-brand: linear-gradient(135deg, var(--color-brand), var(--color-brand-light));
 }
 
 /* ── Base resets ──────────────────────────────────── */
@@ -41,7 +35,7 @@ app-root.full-height {
   height: 100vh;
 }
 
-app-home{
+app-home {
   height: 100%;
 }
 
@@ -55,7 +49,7 @@ main {
   overflow: hidden;
 }
 
-.h-100{
+.h-100 {
   height: 100%;
 }
 
@@ -63,7 +57,7 @@ main {
   position: relative;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +83,6 @@ main {
   justify-content: center;
 }
 
-
 .error-container {
   text-align: center;
   padding: 20px;
@@ -98,7 +91,6 @@ main {
   flex-direction: column;
   justify-content: center;
   justify-self: center;
-
 }
 
 .error-container h2 {
@@ -122,12 +114,10 @@ main {
   cursor: not-allowed;
 }
 
-
 .aos-init {
   opacity: 0;
   transition: all 600ms ease;
 }
-
 
 .fade {
   transform: translateY(20px);
@@ -159,7 +149,7 @@ main {
 }
 
 @media (max-width: 768px) {
-  .error-container{
+  .error-container {
     position: relative;
     left: 0;
     top: 0;

@@ -21,7 +21,6 @@ img {
   opacity: 0;
 }
 
-
 .image-wrapper.loaded .skeleton {
   opacity: 0;
   visibility: hidden;

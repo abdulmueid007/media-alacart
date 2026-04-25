@@ -13,5 +13,5 @@ import { SolutionCardType } from '../../../core/model/solution.model';
 })
 export class SolutionCard {
   @Input({ required: true }) data!: SolutionCardType;
-  @Input({ required: true}) index!:number;
+  @Input({ required: true }) index!: number;
 }

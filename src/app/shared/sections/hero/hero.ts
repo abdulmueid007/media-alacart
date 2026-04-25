@@ -8,12 +8,16 @@ import { ButtonDirective } from '../../ui/button/button.directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 import { HeroBanner } from '../../../core/model/hero-banner.model';
 
-  
-
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [IconComponent, CommonModule, NgxSkeletonLoaderModule, ButtonDirective, SlideRevealDirective],
+  imports: [
+    IconComponent,
+    CommonModule,
+    NgxSkeletonLoaderModule,
+    ButtonDirective,
+    SlideRevealDirective,
+  ],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
@@ -27,7 +31,7 @@ export class Hero {
   onImageLoad() {
     this.imageLoaded = true;
     requestAnimationFrame(() => {
-      this.slideDirectives?.forEach(dir => dir.reobserve());
+      this.slideDirectives?.forEach((dir) => dir.reobserve());
     });
   }
 }

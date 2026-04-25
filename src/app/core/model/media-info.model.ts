@@ -1,4 +1,3 @@
-
 export interface MediaInfo {
   title: string;
   bullets: string[];

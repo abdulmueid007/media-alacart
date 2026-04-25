@@ -6,7 +6,6 @@ export interface SolutionCardType {
   highlight?: boolean;
 }
 
-
 export interface SolutionSection {
   heading: string;
   highlightText: string;

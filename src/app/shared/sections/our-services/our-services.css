@@ -17,7 +17,6 @@
   align-items: center;
   justify-self: center;
   margin: 10px auto;
-  
 }
 
 .header h2 {
@@ -44,10 +43,6 @@
   width: 300px;
 }
 
-
-
-
-
 /* 📱 Mobile */
 @media (max-width: 768px) {
   .services {
@@ -59,9 +54,6 @@
     height: auto;
     align-items: center;
   }
-
-  
-
 
   .cards app-service-card,
   .cards app-service-card:hover,

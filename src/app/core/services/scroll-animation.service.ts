@@ -10,7 +10,7 @@ export class ScrollAnimationService {
     return {
       duration: this.defaultDuration,
       delay: this.defaultDelay,
-      threshold: this.defaultThreshold
+      threshold: this.defaultThreshold,
     };
   }
 }

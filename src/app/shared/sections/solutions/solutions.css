@@ -1,7 +1,7 @@
 .section {
   padding: 60px;
-  background: 
-    linear-gradient(to right, rgb(5 24 26 / 70%) 0%, rgb(21 20 20 / 90%) 100%), 
+  background:
+    linear-gradient(to right, rgb(5 24 26 / 70%) 0%, rgb(21 20 20 / 90%) 100%),
     linear-gradient(to bottom, #152424 0%, #000000 60%, #000000 100%);
   color: white;
 }
@@ -68,9 +68,7 @@ h1 {
   font-weight: 600;
 }
 
-
 @media (max-width: 768px) {
-  
   .grid {
     grid-template-columns: 1fr;
   }
@@ -79,13 +77,12 @@ h1 {
     grid-column: span 1;
   }
 
-  .overlay{
+  .overlay {
     flex-wrap: wrap;
-
   }
 
   .overlay > :first-child {
-  max-width: 100%;
-  font-size: 14px;
-}
+    max-width: 100%;
+    font-size: 14px;
+  }
 }

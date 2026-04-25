@@ -9,7 +9,7 @@ import { StatsData } from '../../../core/model/stats.model';
   standalone: true,
   imports: [CommonModule, ButtonDirective, CountUpDirective],
   templateUrl: './stats.html',
-  styleUrls: ['./stats.css']
+  styleUrls: ['./stats.css'],
 })
 export class Stats {
   @Input({ required: true }) statsData!: StatsData;

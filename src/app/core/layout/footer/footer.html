@@ -1,19 +1,20 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-
       <!-- Left: Logo + tagline -->
       <div class="footer-brand">
-        <div class="logo" appSlideReveal 
-                [animation]="'slide-up'"><img src="assets/images/footer-logo.png" alt="footer-logo"></div>
+        <div class="logo" appSlideReveal [animation]="'slide-up'">
+          <img src="assets/images/footer-logo.png" alt="footer-logo" />
+        </div>
         <p class="tagline">The Future Media Hub</p>
 
         <div class="socials">
-          <a href="#" appSlideReveal 
-                [animation]="'slide-left'"><img src="assets/images/icons/linkedIn.png" alt="linked-in"></a>
-          <a href="#" appSlideReveal 
-                [animation]="'slide-right'"><img src="assets/images/icons/twitter.png" alt="twitter"></a>
-                
+          <a href="#" appSlideReveal [animation]="'slide-left'"
+            ><img src="assets/images/icons/linkedIn.png" alt="linked-in"
+          /></a>
+          <a href="#" appSlideReveal [animation]="'slide-right'"
+            ><img src="assets/images/icons/twitter.png" alt="twitter"
+          /></a>
         </div>
       </div>
 
@@ -21,17 +22,11 @@
       <div class="footer-links">
         <h4>Useful Links</h4>
         <ul>
-        @for (link of usefulLinks; track link.url; let i = $index) {
-
-          <li  appSlideReveal 
-                [animation]="'slide-left'"
-                [delay]="i * 200">
-            <a 
-                [href]="link.url"
-               
-            >{{ link.label }}</a>
-          </li>
-        }
+          @for (link of usefulLinks; track link.url; let i = $index) {
+            <li appSlideReveal [animation]="'slide-left'" [delay]="i * 200">
+              <a [href]="link.url">{{ link.label }}</a>
+            </li>
+          }
         </ul>
       </div>
 
@@ -39,16 +34,11 @@
       <div class="footer-links">
         <h4 class="empty-heading">&nbsp;</h4>
         <ul>
-            @for (link of companyLinks; track link.url; let i = $index) {
-                <li appSlideReveal 
-                    [animation]="'slide-right'"
-                    [delay]="i * 200">
-                    <a 
-                    [href]="link.url" 
-                    
-                    >{{ link.label }}</a>
-                </li>
-            }
+          @for (link of companyLinks; track link.url; let i = $index) {
+            <li appSlideReveal [animation]="'slide-right'" [delay]="i * 200">
+              <a [href]="link.url">{{ link.label }}</a>
+            </li>
+          }
         </ul>
       </div>
 
@@ -56,35 +46,23 @@
       <div class="footer-contact">
         <h4>Contact Us</h4>
 
-        <div class="contact-item"  appSlideReveal 
-                    [animation]="'zoom'"
-                    >
-          <app-icon 
-                [icon]="faLocationPin"
-                color="var(--color-brand)"
-          />
+        <div class="contact-item" appSlideReveal [animation]="'zoom'">
+          <app-icon [icon]="faLocationPin" color="var(--color-brand)" />
           <p>
-            Makateb 2 Building Floor 4, Office 406<br>
-            Dubai Production City, Dubai<br>
+            Makateb 2 Building Floor 4, Office 406<br />
+            Dubai Production City, Dubai<br />
             United Arab Emirates
           </p>
         </div>
 
-        <div class="contact-item" appSlideReveal 
-                    [animation]="'zoom'">
-          <app-icon 
-                [icon]="faEnvelope"
-                color="var(--color-brand)"
-          />
+        <div class="contact-item" appSlideReveal [animation]="'zoom'">
+          <app-icon [icon]="faEnvelope" color="var(--color-brand)" />
           <p>admin@mediaalacarte.net</p>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- Bottom bar -->
-  <div class="footer-bottom">
-    © {{ year }} Media Alacarte Agency FZ LLC - All Rights Reserved.
-  </div>
+  <div class="footer-bottom">© {{ year }} Media Alacarte Agency FZ LLC - All Rights Reserved.</div>
 </footer>

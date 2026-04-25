@@ -9,8 +9,8 @@ import { SlideRevealDirective } from '../../../core/directives/slide-reveal.dire
   selector: 'app-service-card',
   standalone: true,
   templateUrl: './service-card.html',
-  styleUrls: ['./service-card.css'], 
-  imports: [CommonModule, IconButton, IconButtonDirective, Image, SlideRevealDirective]
+  styleUrls: ['./service-card.css'],
+  imports: [CommonModule, IconButton, IconButtonDirective, Image, SlideRevealDirective],
 })
 export class ServiceCard implements AfterViewInit {
   @Input() title!: string;
@@ -30,7 +30,7 @@ export class ServiceCard implements AfterViewInit {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(this.el.nativeElement);

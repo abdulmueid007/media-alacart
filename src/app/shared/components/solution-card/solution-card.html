@@ -1,6 +1,10 @@
-<div class="card" [class.highlight]="data.highlight" appSlideReveal 
-  [animation]="index % 3 === 0 ? 'slide-left' : 'slide-right'">
-  @if(data.icon){
+<div
+  class="card"
+  [class.highlight]="data.highlight"
+  appSlideReveal
+  [animation]="index % 3 === 0 ? 'slide-left' : 'slide-right'"
+>
+  @if (data.icon) {
     <div class="icon">
       <img [src]="data.icon" alt="icon" />
     </div>
@@ -10,7 +14,6 @@
   <p>{{ data.description }}</p>
 
   <div class="button-wrapper">
-    <app-icon-button appIconButton variant="outlined"/>
+    <app-icon-button appIconButton variant="outlined" />
   </div>
-  
 </div>

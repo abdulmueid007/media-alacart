@@ -1,27 +1,16 @@
 <section class="hero">
   <div class="hero-container">
-
     <div class="hero-text">
       <p class="badge">{{ heroBanner.eyebrow }}</p>
-      <p class="bigger-impact" appSlideReveal 
-  animation="slide-down"
-          >{{ heroBanner.highlight }}</p>
-      <h1 class="main-title"
-      appSlideReveal 
-  animation="slide-left"
-          >{{ heroBanner.title }}</h1>
-      <p class="tagline" 
-      appSlideReveal 
-  animation="slide-right"
-          >{{ heroBanner.subtitle }}</p>
+      <p class="bigger-impact" appSlideReveal animation="slide-down">{{ heroBanner.highlight }}</p>
+      <h1 class="main-title" appSlideReveal animation="slide-left">{{ heroBanner.title }}</h1>
+      <p class="tagline" appSlideReveal animation="slide-right">{{ heroBanner.subtitle }}</p>
     </div>
 
     <div class="hero-visual">
-
-      @if(!imageLoaded){
-      <div class="skeleton-container hero-card">
-        <ngx-skeleton-loader
-            
+      @if (!imageLoaded) {
+        <div class="skeleton-container hero-card">
+          <ngx-skeleton-loader
             appearance="square"
             animation="pulse"
             [theme]="{
@@ -29,47 +18,29 @@
               width: '100%',
               borderRadius: '50px',
               background: 'rgb(125 122 122 / .3)',
-            }" />
-
-      </div>
-    }
-      <div class="hero-card" [class.hidden]="!imageLoaded" >
-       
+            }"
+          />
+        </div>
+      }
+      <div class="hero-card" [class.hidden]="!imageLoaded">
         <img
           [src]="heroBanner.image"
           alt="Business professionals collaborating"
           class="hero-img"
           (load)="onImageLoad()"
-          appSlideReveal 
+          appSlideReveal
           animation="slide-up"
         />
-         
-          <button 
-            appButton 
-            class="hero-cta"
-            appSlideReveal 
-          animation="zoom"
 
-           
-          >Start your journey!</button>
+        <button appButton class="hero-cta" appSlideReveal animation="zoom">
+          Start your journey!
+        </button>
 
-          <button 
-          appButton 
-          class="hero-learn" 
-          variant="outlined"
-          appSlideReveal 
-          animation="zoom"
-          >
-            <app-icon 
-            [icon]="faPlayCircle"
-            color="var(--color-text)"
-            
-          />
+        <button appButton class="hero-learn" variant="outlined" appSlideReveal animation="zoom">
+          <app-icon [icon]="faPlayCircle" color="var(--color-text)" />
           Learn More
-          </button>
+        </button>
       </div>
-
     </div>
   </div>
-
 </section>

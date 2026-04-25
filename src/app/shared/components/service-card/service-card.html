@@ -1,19 +1,12 @@
-<div class="card" 
-  appSlideReveal 
-  animation="slide-up"
-  [delay]="index * 200">
-  <app-image
-    [src]="image"
-    [alt]="title"
-    borderRadius="24px"
-  />
+<div class="card" appSlideReveal animation="slide-up" [delay]="index * 200">
+  <app-image [src]="image" [alt]="title" borderRadius="24px" />
 
   <div class="overlay">
     <div>
-        <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
     </div>
-    <app-icon-button appIconButton/>
+    <app-icon-button appIconButton />
   </div>
 
   <div class="vertical-label">

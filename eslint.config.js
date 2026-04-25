@@ -13,7 +13,7 @@ module.exports = defineConfig([
       tseslint.configs.recommended,
       tseslint.configs.stylistic,
       angular.configs.tsRecommended,
-      prettier
+      prettier,
     ],
     processor: angular.processInlineTemplates,
     rules: {

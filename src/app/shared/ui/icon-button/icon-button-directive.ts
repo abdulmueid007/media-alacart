@@ -7,7 +7,6 @@ type ButtonVariant = 'primary' | 'outlined';
   standalone: true,
 })
 export class IconButtonDirective {
-
   @Input() variant: ButtonVariant = 'primary';
   @Input() iconColor = 'var(--color-text)';
 
@@ -15,10 +14,6 @@ export class IconButtonDirective {
 
   @HostBinding('class')
   get classes(): string {
-    return [
-      'icon-btn-wrapper',
-      `icon-btn-wrapper-${this.variant}`,
-      this.userClass
-    ].join(' ');
+    return ['icon-btn-wrapper', `icon-btn-wrapper-${this.variant}`, this.userClass].join(' ');
   }
 }

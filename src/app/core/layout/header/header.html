@@ -1,13 +1,8 @@
 <header class="header" [class.scrolled]="isScrolled">
   <div class="header-inner">
-
     <!-- Logo -->
     <a class="logo" routerLink="/">
-      <img
-        src="assets/images/logo.png"
-        alt="media alacarte"
-        class="logo-img"
-      />
+      <img src="assets/images/logo.png" alt="media alacarte" class="logo-img" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -39,13 +34,10 @@
       <span></span>
       <span></span>
     </button>
-
   </div>
 
   <!-- Mobile Navigation -->
-  <nav class="mobile-nav" [class.open]="isMenuOpen()" 
-  >
-
+  <nav class="mobile-nav" [class.open]="isMenuOpen()">
     @for (link of navLinks; track link.path; let i = $index) {
       <a
         class="mobile-link"
@@ -54,20 +46,19 @@
         [routerLinkActiveOptions]="{ exact: link.path === '/' }"
         (click)="closeMenu()"
         ngmMotion
-          [animate]="isMenuOpen() ? 'visible' : 'hidden'"
-          [variants]="itemVariants"
-          [transition]="{
-            type: 'spring',
-            stiffness: 300,
-            damping: 24,
-            delay: i * 0.08
-          }"
+        [animate]="isMenuOpen() ? 'visible' : 'hidden'"
+        [variants]="itemVariants"
+        [transition]="{
+          type: 'spring',
+          stiffness: 300,
+          damping: 24,
+          delay: i * 0.08,
+        }"
       >
         {{ link.label }}
       </a>
     }
 
     <button appButton class="ogin-btn mobile-login" (click)="closeMenu()">Login</button>
-
   </nav>
 </header>

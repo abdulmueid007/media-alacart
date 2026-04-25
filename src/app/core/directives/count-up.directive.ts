@@ -1,19 +1,11 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  AfterViewInit,
-  OnDestroy,
-  inject
-} from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { CountUp } from 'countup.js';
 
 @Directive({
   selector: '[appCountUp]',
-  standalone: true
+  standalone: true,
 })
 export class CountUpDirective implements AfterViewInit, OnDestroy {
-
   @Input('appCountUp') value: string | number = 0;
   @Input() duration = 2;
   @Input() threshold = 0.4;
@@ -24,7 +16,7 @@ export class CountUpDirective implements AfterViewInit, OnDestroy {
   private started = false;
 
   private el = inject(ElementRef<HTMLElement>);
-  
+
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver(
       ([entry]) => {
@@ -38,8 +30,8 @@ export class CountUpDirective implements AfterViewInit, OnDestroy {
         }
       },
       {
-        threshold: this.threshold
-      }
+        threshold: this.threshold,
+      },
     );
 
     this.observer.observe(this.el.nativeElement);
@@ -58,7 +50,7 @@ export class CountUpDirective implements AfterViewInit, OnDestroy {
       duration: this.duration,
       decimalPlaces: parsed.decimals,
       suffix: parsed.suffix,
-      useGrouping: true
+      useGrouping: true,
     });
 
     this.counter.start();
@@ -69,27 +61,22 @@ export class CountUpDirective implements AfterViewInit, OnDestroy {
       return {
         number: value,
         suffix: '',
-        decimals: 0
+        decimals: 0,
       };
     }
 
     const match = value.match(/^([\d,.]+)(.*)$/);
 
-    const number = match
-      ? parseFloat(match[1].replace(/,/g, ''))
-      : 0;
+    const number = match ? parseFloat(match[1].replace(/,/g, '')) : 0;
 
     const suffix = match ? match[2] : '';
 
-    const decimals =
-      match && match[1].includes('.')
-        ? match[1].split('.')[1].length
-        : 0;
+    const decimals = match && match[1].includes('.') ? match[1].split('.')[1].length : 0;
 
     return {
       number,
       suffix,
-      decimals
+      decimals,
     };
   }
 }

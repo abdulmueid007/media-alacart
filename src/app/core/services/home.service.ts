@@ -6,7 +6,7 @@ import { API_PATHS } from '../constants/api-paths';
 import { HomeResponse } from '../model/home.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HomeService {
   private url = `${environment.apiBaseUrl}${API_PATHS.HOME}`;

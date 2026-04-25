@@ -1,12 +1,8 @@
-@if(services && services.length){
+@if (services && services.length) {
   <section class="services">
     <div class="header">
       <div class="icon">
-        <app-icon 
-          [icon]="faGears"
-          color="#fff"
-          size="2x"
-        />
+        <app-icon [icon]="faGears" color="#fff" size="2x" />
       </div>
       <h2>Our Services</h2>
     </div>
@@ -14,12 +10,10 @@
     <div class="cards">
       @for (service of services; track service.title; let i = $index) {
         <app-service-card
-          
           [title]="service.title"
           [description]="service.description"
           [image]="service.image"
           [index]="i"
-          
         />
       }
     </div>

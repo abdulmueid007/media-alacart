@@ -1,24 +1,19 @@
 <div class="banners-container" #section>
-      
-      <div class="banner-container banner-1" appSlideReveal 
-      animation="slide-left">
-        <div class="scroll-track" [style.--speed]="speed">
-          <div class="scroll-content">
-            <span class="banner-text">{{ primaryText }}</span>
-            <span class="banner-text">{{ primaryText }}</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="banner-container banner-2" 
-      appSlideReveal 
-      animation="slide-left"
-      >
-        <div class="scroll-track" [style.--speed]="speed">
-          <div class="scroll-content">
-            <span class="banner-text">{{ secondaryText }}</span>
-            <span class="banner-text">{{ secondaryText }}</span>
-          </div>
-        </div>
+  <div class="banner-container banner-1" appSlideReveal animation="slide-left">
+    <div class="scroll-track" [style.--speed]="speed">
+      <div class="scroll-content">
+        <span class="banner-text">{{ primaryText }}</span>
+        <span class="banner-text">{{ primaryText }}</span>
       </div>
     </div>
+  </div>
+
+  <div class="banner-container banner-2" appSlideReveal animation="slide-left">
+    <div class="scroll-track" [style.--speed]="speed">
+      <div class="scroll-content">
+        <span class="banner-text">{{ secondaryText }}</span>
+        <span class="banner-text">{{ secondaryText }}</span>
+      </div>
+    </div>
+  </div>
+</div>

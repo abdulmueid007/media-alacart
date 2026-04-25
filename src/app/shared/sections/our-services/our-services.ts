@@ -9,10 +9,9 @@ import { Service } from '../../../core/model/service.model';
   standalone: true,
   imports: [CommonModule, ServiceCard, IconComponent],
   templateUrl: './our-services.html',
-  styleUrls: ['./our-services.css']
+  styleUrls: ['./our-services.css'],
 })
 export class OurServices {
   faGears = faGears;
   @Input({ required: true }) services!: Service[];
-
 }

@@ -19,11 +19,11 @@
   width: auto;
   height: auto;
   transition:
-    transform   0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow  0.2s ease,
-    background  0.2s ease,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease,
+    background 0.2s ease,
     border-color 0.2s ease,
-    opacity     0.2s ease;
+    opacity 0.2s ease;
 }
 
 /* ── Primary (pink gradient) ──────────── */
@@ -36,7 +36,6 @@
 .btn-primary:hover {
   transform: scale(1.02);
   box-shadow: 0 14px 38px rgba(255, 45, 85, 0.52);
-  
 }
 
 .btn-primary:active {
@@ -67,12 +66,8 @@
 }
 
 @media (max-width: 768px) {
-
-  
-
   .btn {
-    
-    font-size: .5rem;
+    font-size: 0.5rem;
     gap: 4px;
   }
 }
@@ -80,7 +75,6 @@
 @media (max-width: 375px) {
   .btn {
     font-size: 6px;
-    padding: .5rem;
+    padding: 0.5rem;
   }
 }
-

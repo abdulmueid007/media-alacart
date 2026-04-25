@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.html',
-    './src/**/*.ts',
-  ],
+  content: ['./src/**/*.html', './src/**/*.ts'],
   theme: {
     extend: {
       colors: {
@@ -21,18 +18,18 @@ module.exports = {
         sans: ['Work Sans', 'sans-serif'],
       },
       fontSize: {
-        xs:  '0.75rem',
-        sm:  '0.875rem',
-        base:'0.95rem',
-        lg:  '1.125rem',
-        xl:  '1.25rem',
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '0.95rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
       },
       spacing: {
-        'xs': '0.25rem',
-        'sm': '0.5rem',
-        'md': '1rem',
-        'lg': '1.5rem',
-        'xl': '2rem',
+        xs: '0.25rem',
+        sm: '0.5rem',
+        md: '1rem',
+        lg: '1.5rem',
+        xl: '2rem',
       },
       borderRadius: {
         sm: '6px',

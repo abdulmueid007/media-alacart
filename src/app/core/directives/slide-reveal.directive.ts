@@ -1,19 +1,12 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-  OnDestroy,
-  inject
-} from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, inject } from '@angular/core';
 import { ScrollAnimationService } from '../services/scroll-animation.service';
 
 @Directive({
-  selector: '[appSlideReveal]'
+  selector: '[appSlideReveal]',
 })
 export class SlideRevealDirective implements OnInit, OnDestroy {
-
-  @Input() animation: 'fade' | 'slide-up' | 'slide-down' | 'slide-right' | 'slide-left' | 'zoom' = 'fade';
+  @Input() animation: 'fade' | 'slide-up' | 'slide-down' | 'slide-right' | 'slide-left' | 'zoom' =
+    'fade';
   @Input() duration?: number;
   @Input() delay?: number;
   @Input() threshold?: number;
@@ -37,7 +30,7 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
     nativeEl.style.transitionTimingFunction = 'ease';
     nativeEl.style.transitionDelay = `${delay}ms`;
     nativeEl.classList.add('aos-init', this.animation);
-    nativeEl.classList.remove('aos-animate'); 
+    nativeEl.classList.remove('aos-animate');
 
     this.observer = new IntersectionObserver(
       ([entry]) => {
@@ -51,7 +44,7 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
           nativeEl.classList.remove('aos-animate');
         }
       },
-      { threshold }
+      { threshold },
     );
 
     requestAnimationFrame(() => {

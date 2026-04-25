@@ -6,7 +6,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   selector: 'app-image',
   templateUrl: './image.html',
   styleUrls: ['./image.css'],
-  imports: [NgxSkeletonLoaderModule, CommonModule]
+  imports: [NgxSkeletonLoaderModule, CommonModule],
 })
 export class Image {
   @Input() src = '';

@@ -2,8 +2,6 @@ import { Component, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, catchError, of, tap, switchMap } from 'rxjs';
 
-
-
 import { CrossBanner } from '../../shared/sections/comming-soon-banner/cross-banner';
 import { Hero } from '../../shared/sections/hero/hero';
 import { OurServices } from '../../shared/sections/our-services/our-services';
@@ -15,12 +13,10 @@ import { Stats } from '../../shared/sections/app-stats/stats';
 import { Media } from '../../shared/sections/media/media';
 import { LoaderService } from '../../core/services/loader.service';
 
-
-
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media],  
+  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media],
   templateUrl: './home.html',
 })
 export class Home {
@@ -43,7 +39,7 @@ export class Home {
         this.loader.show();
 
         return this.homeService.getHomeData().pipe(
-          map(res => res?.[0] ?? null),
+          map((res) => res?.[0] ?? null),
 
           tap(() => {
             this.loader.hide();
@@ -55,23 +51,22 @@ export class Home {
             this.error.set(true);
             this.loader.hide();
             return of(null);
-          })
+          }),
         );
-      })
+      }),
     ),
-    { initialValue: null }
+    { initialValue: null },
   );
 
   retry() {
     if (this.retryCount() >= this.maxRetries) return;
     this.loader.show();
 
-    this.retryCount.update(c => c + 1);
-    this.reloadTrigger.update(v => v + 1);
+    this.retryCount.update((c) => c + 1);
+    this.reloadTrigger.update((v) => v + 1);
   }
 
   removeFullHeight() {
     this.renderer.removeClass(this.doc.body.querySelector('app-root'), 'full-height');
   }
-  
 }

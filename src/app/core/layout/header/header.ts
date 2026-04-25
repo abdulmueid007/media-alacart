@@ -9,22 +9,21 @@ import { SlideRevealDirective } from '../../directives/slide-reveal.directive';
   standalone: true,
   imports: [RouterModule, ButtonDirective, NgmMotionDirective, SlideRevealDirective],
   templateUrl: './header.html',
-  styleUrl: './header.css'
+  styleUrl: './header.css',
 })
 export class Header {
-
   readonly itemVariants: Variants = {
     visible: { opacity: 1, y: 0, x: 0 },
     hidden: { opacity: 0, y: 20, x: -12 },
-} ;
+  };
 
   readonly navLinks = [
-    { label: 'The Platform',   path: '/' },
-    { label: 'Features',       path: '/features' },
-    { label: 'Benefits',       path: '/benefits' },
+    { label: 'The Platform', path: '/' },
+    { label: 'Features', path: '/features' },
+    { label: 'Benefits', path: '/benefits' },
     { label: 'Request a Demo', path: '/demo' },
-    { label: 'Contact Us',     path: '/contact' },
-    { label: 'About Us',       path: '/about' },
+    { label: 'Contact Us', path: '/contact' },
+    { label: 'About Us', path: '/about' },
   ];
 
   isMenuOpen = signal(false);
@@ -44,7 +43,7 @@ export class Header {
   }
 
   toggleMenu(): void {
-    this.isMenuOpen.update(v => !v);
+    this.isMenuOpen.update((v) => !v);
   }
 
   closeMenu(): void {

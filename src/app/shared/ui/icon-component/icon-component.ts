@@ -7,12 +7,12 @@ import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
   selector: 'app-icon',
   standalone: true,
   imports: [FontAwesomeModule, CommonModule],
-  templateUrl: './icon-component.html'
+  templateUrl: './icon-component.html',
 })
 export class IconComponent {
-  @Input() icon!: IconDefinition; 
+  @Input() icon!: IconDefinition;
 
   @Input() size: SizeProp = 'sm';
-  @Input() color?: string;       
+  @Input() color?: string;
   @Input() customClass = '';
 }

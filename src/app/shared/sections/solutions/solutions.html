@@ -1,48 +1,32 @@
-@if(solutionData){
+@if (solutionData) {
   <section class="section">
-
     <!-- Heading -->
     <div class="heading">
       <p class="tag">WHY MEDIA ALA CARTE?</p>
 
       <h1>
         {{ solutionData.heading }}
-        <span class="highlight" appSlideReveal 
-          animation="zoom">{{ solutionData.highlightText }}</span>
+        <span class="highlight" appSlideReveal animation="zoom">{{
+          solutionData.highlightText
+        }}</span>
         {{ solutionData.subheading }}
       </h1>
     </div>
 
     <!-- Grid -->
     <div class="grid">
-
       <!-- Hero Banner -->
-      <div 
-        class="hero" 
-        appSlideReveal 
-        animation="slide-up">
-          <app-image
-            [src]="solutionData.heroImage"
-            alt="heroImage"
-            borderRadius="16px"
-          />
-          <div class="overlay">
-            <p>{{ solutionData.heroText }}</p>
-            <button appButton variant="primary" textColor="var(--color-surface)">
-              Get Started
-            </button>
-          </div>
-    </div>
+      <div class="hero" appSlideReveal animation="slide-up">
+        <app-image [src]="solutionData.heroImage" alt="heroImage" borderRadius="16px" />
+        <div class="overlay">
+          <p>{{ solutionData.heroText }}</p>
+          <button appButton variant="primary" textColor="var(--color-surface)">Get Started</button>
+        </div>
+      </div>
 
-    @for (card of solutionData.cards; track card.title; let i = $index) {
-      <app-solution-card
-      
-        [data]="card"
-        [index]="i"
-        />
-      
-    }
+      @for (card of solutionData.cards; track card.title; let i = $index) {
+        <app-solution-card [data]="card" [index]="i" />
+      }
     </div>
-
   </section>
 }

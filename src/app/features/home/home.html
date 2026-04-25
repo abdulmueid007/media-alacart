@@ -1,39 +1,26 @@
-<main [class.relative]="error()"
-  [class.h-100]="error()"
-  [class.flex-center]="error()">
-
-@if (!error() && homeData(); as home) {
-
+<main [class.relative]="error()" [class.h-100]="error()" [class.flex-center]="error()">
+  @if (!error() && homeData(); as home) {
     <app-hero [heroBanner]="home.hero"></app-hero>
-    <app-cross-banner 
+    <app-cross-banner
       [primaryText]="home.adBanner.primaryText"
       [secondaryText]="home.adBanner.secondaryText"
       [speed]="'10s'"
     />
     <app-services-section [services]="home.services" />
-    <app-solutions-section [solutionData]="home.solutions"/>
-    <app-stats [statsData]="home.statsData"/>
-    <app-media [mediaInfo]="home.mediaInfo"/>
-} @else {
+    <app-solutions-section [solutionData]="home.solutions" />
+    <app-stats [statsData]="home.statsData" />
+    <app-media [mediaInfo]="home.mediaInfo" />
+  } @else {
+    <div class="absolute-center error-container">
+      <h2>Something went wrong.</h2>
 
-  <div class="absolute-center error-container">
-    <h2>Something went wrong.</h2>
+      <button (click)="retry()" [disabled]="retryCount() >= maxRetries">
+        {{ retryCount() >= maxRetries ? 'Retry limit reached' : 'Try Again' }}
+      </button>
 
-    <button 
-      (click)="retry()"
-      [disabled]="retryCount() >= maxRetries">
-
-      {{ retryCount() >= maxRetries 
-          ? 'Retry limit reached' 
-          : 'Try Again' }}
-    </button>
-
-    @if(retryCount() > 0){
-      <p >
-        Attempts: {{ retryCount() }} / {{ maxRetries }}
-      </p>
-    }
-  </div>
-}
-
+      @if (retryCount() > 0) {
+        <p>Attempts: {{ retryCount() }} / {{ maxRetries }}</p>
+      }
+    </div>
+  }
 </main>

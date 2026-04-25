@@ -1,8 +1,4 @@
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 @Component({
@@ -12,10 +8,8 @@ import { SlideRevealDirective } from '../../../core/directives/slide-reveal.dire
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, SlideRevealDirective],
 })
-
 export class CrossBanner {
   @Input({ required: true }) primaryText!: string;
   @Input({ required: true }) secondaryText!: string;
   @Input() speed = '20s';
- 
 }

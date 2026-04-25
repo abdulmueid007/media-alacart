@@ -10,12 +10,14 @@ import { LoaderService } from './core/services/loader.service';
   standalone: true,
   imports: [RouterOutlet, Header, Footer, Loader],
   template: `
-  <app-header />
-<router-outlet />
-@if (!loader.isLoading()) {<app-footer />}
-   @if (loader.isLoading()) {
-  <app-loader />
-}
+    <app-header />
+    <router-outlet />
+    @if (!loader.isLoading()) {
+      <app-footer />
+    }
+    @if (loader.isLoading()) {
+      <app-loader />
+    }
   `,
 })
 export class App {

@@ -4,7 +4,6 @@ import { faLocationPin, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { IconComponent } from '../../../shared/ui/icon-component/icon-component';
 import { SlideRevealDirective } from '../../directives/slide-reveal.directive';
 
-
 interface Link {
   label: string;
   url: string;
@@ -14,7 +13,7 @@ interface Link {
   selector: 'app-footer',
   templateUrl: './footer.html',
   styleUrls: ['./footer.css'],
-  imports: [CommonModule, IconComponent, SlideRevealDirective]
+  imports: [CommonModule, IconComponent, SlideRevealDirective],
 })
 export class Footer {
   year = new Date().getFullYear();
@@ -25,13 +24,13 @@ export class Footer {
     { label: 'The Platform', url: '#' },
     { label: 'Features', url: '#' },
     { label: 'Benefits', url: '#' },
-    { label: 'Request a Demo', url: '#' }
+    { label: 'Request a Demo', url: '#' },
   ];
 
   companyLinks: Link[] = [
     { label: 'Contact Us', url: '#' },
     { label: 'About Us', url: '#' },
     { label: 'Privacy Policy', url: '#' },
-    { label: 'Terms of Service', url: '#' }
+    { label: 'Terms of Service', url: '#' },
   ];
 }

@@ -1,35 +1,29 @@
 <section class="hero-wrapper">
-
   <div class="hero-section">
-  <div class="hero-content">
+    <div class="hero-content">
+      <span class="badge">{{ statsData.badge }}</span>
 
-    <span class="badge">{{ statsData.badge }}</span>
+      <h1 class="heading">{{ statsData.heading }}</h1>
 
-    <h1 class="heading">{{ statsData.heading }}</h1>
+      <p class="subtext">{{ statsData.subtext }}</p>
 
-    <p class="subtext">{{ statsData.subtext }}</p>
-
-    <button class="cta-btn" appButton variant="outlined">{{ statsData.buttonLabel }}</button>
-
-  </div>
-
-  <div class="stats-card">
-    @for (stat of statsData.stats;track stat.label; let last = $last){
-    <div
-      class="stat-item"
-      [class.no-divider]="last"
-    >
-        <span class="stat-value" [appCountUp]="stat.value"></span> 
-       
-      <span class="stat-label">{{ stat.label }}</span>
+      <button class="cta-btn" appButton variant="outlined">{{ statsData.buttonLabel }}</button>
     </div>
-    }
+
+    <div class="stats-card">
+      @for (stat of statsData.stats; track stat.label; let last = $last) {
+        <div class="stat-item" [class.no-divider]="last">
+          <span class="stat-value" [appCountUp]="stat.value"></span>
+
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
   </div>
-  </div>
-  
-  @if(statsData.bannerImage){
+
+  @if (statsData.bannerImage) {
     <div class="members">
-      <img [src]="statsData.bannerImage" alt="banner-image"/>
+      <img [src]="statsData.bannerImage" alt="banner-image" />
     </div>
   }
 </section>

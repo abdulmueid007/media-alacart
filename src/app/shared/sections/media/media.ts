@@ -13,8 +13,7 @@ import { MediaInfo } from '../../../core/model/media-info.model';
   styleUrl: './media.css',
 })
 export class Media {
- faAngleRight = faAngleRight;
- faCheckCircle = faCheckCircle;
- @Input({ required: true }) mediaInfo!:MediaInfo;
-
+  faAngleRight = faAngleRight;
+  faCheckCircle = faCheckCircle;
+  @Input({ required: true }) mediaInfo!: MediaInfo;
 }

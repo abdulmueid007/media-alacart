@@ -9,7 +9,7 @@
   background:
     linear-gradient(rgba(22, 22, 23, 0.75), rgba(22, 22, 23, 0.85)),
     url('/assets/images/backgrounds/media-bg.png') no-repeat center / cover;
-  
+
   border-radius: 24px;
   padding: 60px 40px;
   text-align: center;
@@ -67,25 +67,25 @@
 }
 
 @media (max-width: 768px) {
-    .media-card{
-        padding: 36px 24px;
-    }
-    .media-card h1{
-        font-size: 2rem;
-        max-width: 100%;
-    }
-    .features{
-        justify-content: flex-start;
-    }
-    .feature{
-        align-items: flex-start;
-    }
-    .feature p{
-        margin: 0;
-        text-align: start;
-    }
-    .media-button {
-        font-size: 14px;
-        width: 100%;
-    }
+  .media-card {
+    padding: 36px 24px;
+  }
+  .media-card h1 {
+    font-size: 2rem;
+    max-width: 100%;
+  }
+  .features {
+    justify-content: flex-start;
+  }
+  .feature {
+    align-items: flex-start;
+  }
+  .feature p {
+    margin: 0;
+    text-align: start;
+  }
+  .media-button {
+    font-size: 14px;
+    width: 100%;
+  }
 }

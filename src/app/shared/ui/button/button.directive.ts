@@ -7,7 +7,6 @@ type ButtonVariant = 'primary' | 'outlined';
   standalone: true,
 })
 export class ButtonDirective {
-
   @Input() variant: ButtonVariant = 'primary';
   @Input() textColor = '#ffffff';
 
@@ -20,10 +19,6 @@ export class ButtonDirective {
 
   @HostBinding('class')
   get classes(): string {
-    return [
-      'btn',
-      `btn-${this.variant}`,
-      this.userClass
-    ].join(' ');
+    return ['btn', `btn-${this.variant}`, this.userClass].join(' ');
   }
 }
