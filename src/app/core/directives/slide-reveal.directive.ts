@@ -1,5 +1,8 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, inject } from '@angular/core';
-import { ScrollAnimationService } from '../services/scroll-animation.service';
+
+const DEFAULT_DURATION_MS = 500;
+const DEFAULT_DELAY_MS = 200;
+const DEFAULT_IO_THRESHOLD = 0.2;
 
 @Directive({
   selector: '[appSlideReveal]',
@@ -15,15 +18,12 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
   private observer!: IntersectionObserver;
 
   private el = inject(ElementRef);
-  private config = inject(ScrollAnimationService);
 
   ngOnInit() {
     const nativeEl = this.el.nativeElement;
-    const cfg = this.config.getConfig();
-
-    const duration = this.duration ?? cfg.duration;
-    const delay = this.delay ?? cfg.delay;
-    const threshold = this.threshold ?? cfg.threshold;
+    const duration = this.duration ?? DEFAULT_DURATION_MS;
+    const delay = this.delay ?? DEFAULT_DELAY_MS;
+    const threshold = this.threshold ?? DEFAULT_IO_THRESHOLD;
 
     nativeEl.style.transitionProperty = 'opacity, transform';
     nativeEl.style.transitionDuration = `${duration}ms`;

@@ -1,5 +1,7 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { filter } from 'rxjs';
 import { ButtonDirective } from '../../../shared/ui/button/button.directive';
 import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
 import { SlideRevealDirective } from '../../directives/slide-reveal.directive';
@@ -32,9 +34,14 @@ export class Header {
   private router = inject(Router);
 
   constructor() {
-    this.router.events.subscribe(() => {
-      this.isMenuOpen.set(false);
-    });
+    this.router.events
+      .pipe(
+        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+        takeUntilDestroyed(),
+      )
+      .subscribe(() => {
+        this.isMenuOpen.set(false);
+      });
   }
 
   @HostListener('window:scroll')

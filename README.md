@@ -1,59 +1,144 @@
 # MediaAlacart
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+A modern Angular 21 application built with TypeScript, Tailwind CSS, ESLint, Prettier, and Vitest.
 
-## Development server
+This project was generated using [Angular CLI](https://angular.dev/) version **21.2.7**.
 
-To start a local development server, run:
+---
+
+## 📦 Prerequisites
+
+Before running the project, make sure the following are installed:
+
+- **Node.js** (Latest LTS recommended)
+- **Yarn** `1.22.22`
+
+Check versions:
 
 ```bash
+node -v
+yarn -v
+🚀 Getting Started
+1. Clone the Repository
+
+cd media-alacart
+2. Install Dependencies
+yarn install
+3. Run Development Server
+yarn start
+
+or
+
 ng serve
+
+Once the server starts, open your browser:
+
+http://localhost:4200/
+
+The application will automatically reload when source files are updated.
+
+📜 Available Scripts
+▶️ Start Development Server
+yarn start
+
+Runs:
+
+ng serve
+🏗 Build for Production
+yarn build
+
+Creates an optimized production build inside:
+
+dist/
+👀 Watch Mode
+yarn watch
+
+Runs continuous builds in development mode.
+
+🧪 Run Unit Tests
+yarn test
+
+Runs tests using Vitest.
+
+✅ Run Lint Checks
+yarn lint
+
+Runs ESLint across the project.
+
+🛠 Fix Lint Issues Automatically
+yarn lint:fix
+🎨 Check Code Formatting
+yarn format:check
+
+Checks formatting using Prettier.
+
+✨ Auto Format Code
+yarn format
+
+Formats all supported files using Prettier.
+
+🔍 Full Code Quality Check
+yarn lint:check
+
+Runs:
+
+yarn lint && yarn format:check
+
+Recommended before creating a PR.
+
+🧱 Angular CLI Commands
+
+Run Angular CLI directly:
+
+yarn ng
+
+Examples:
+
+Generate Component
+yarn ng generate component components/header
+Generate Service
+yarn ng generate service services/api
+View All Schematics
+yarn ng generate --help
+📁 Project Structure
+media-alacart/
+├── src/
+│   ├── app/
+│   ├── assets/
+│   ├── environments/
+│   └── styles/
+├── public/
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
+🛠 Tech Stack
+Angular 21
+TypeScript
+Tailwind CSS
+RxJS
+ESLint
+Prettier
+Vitest
+Font Awesome
+📌 Recommended Workflow
+Start Development
+yarn install
+yarn start
+Before Pushing Code
+yarn lint:check
+yarn test
+yarn build
+🧹 Code Standards
+Use consistent formatting with Prettier
+Follow lint rules using ESLint
+Keep components modular and reusable
+Write tests for critical logic
+🚀 Deployment
+
+To create a build:
+
+yarn build
+
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
