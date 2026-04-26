@@ -1,6 +1,7 @@
 .footer {
   background: var(--color-footer);
   color: var(--color-text);
+  overflow: hidden;
 }
 
 /* Container */
