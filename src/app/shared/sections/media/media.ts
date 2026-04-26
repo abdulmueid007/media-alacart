@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { faAngleRight, faAngleLeft, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
@@ -13,6 +13,7 @@ import { LangService } from '../../../core/services/lang.service';
   imports: [IconComponent, ButtonDirective, SlideRevealDirective, TranslatePipe],
   templateUrl: './media.html',
   styleUrl: './media.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Media {
   faAngleRight = faAngleRight;

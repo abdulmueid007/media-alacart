@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
@@ -6,7 +5,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   selector: 'app-image',
   templateUrl: './image.html',
   styleUrls: ['./image.css'],
-  imports: [NgxSkeletonLoaderModule, CommonModule],
+  imports: [NgxSkeletonLoaderModule],
 })
 export class Image {
   @Input() src = '';

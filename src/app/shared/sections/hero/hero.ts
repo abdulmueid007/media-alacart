@@ -1,8 +1,7 @@
-import { Component, Input, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { IconComponent } from '../../ui/icon-component/icon-component';
-import { CommonModule } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ButtonDirective } from '../../ui/button/button.directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
@@ -14,7 +13,6 @@ import { TranslatePipe } from '../../../core/pipes/translate.pipe';
   standalone: true,
   imports: [
     IconComponent,
-    CommonModule,
     NgxSkeletonLoaderModule,
     ButtonDirective,
     SlideRevealDirective,
@@ -22,6 +20,7 @@ import { TranslatePipe } from '../../../core/pipes/translate.pipe';
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Hero {
   faPlayCircle = faPlayCircle;

@@ -7,7 +7,6 @@ import { Hero } from '../../shared/sections/hero/hero';
 import { OurServices } from '../../shared/sections/our-services/our-services';
 import { HomeService } from '../../core/services/home.service';
 import { HomeResponse } from '../../core/model/home.model';
-import { CommonModule } from '@angular/common';
 import { Solutions } from '../../shared/sections/solutions/solutions';
 import { Stats } from '../../shared/sections/app-stats/stats';
 import { Media } from '../../shared/sections/media/media';
@@ -18,7 +17,7 @@ import { LangService } from '../../core/services/lang.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, CommonModule, Solutions, Stats, Media, OrbitalNetwork],
+  imports: [Hero, CrossBanner, OurServices, Solutions, Stats, Media, OrbitalNetwork],
   templateUrl: './home.html',
 })
 export class Home {

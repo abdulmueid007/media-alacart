@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { faLocationPin, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { IconComponent } from '../../../shared/ui/icon-component/icon-component';
@@ -14,7 +13,7 @@ interface FooterLink {
   selector: 'app-footer',
   templateUrl: './footer.html',
   styleUrls: ['./footer.css'],
-  imports: [CommonModule, IconComponent, SlideRevealDirective, TranslatePipe],
+  imports: [IconComponent, SlideRevealDirective, TranslatePipe],
 })
 export class Footer {
   year = new Date().getFullYear();

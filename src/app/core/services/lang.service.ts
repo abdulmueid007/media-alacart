@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ApplicationRef, Injectable, computed, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { Lang, TRANSLATIONS } from '../i18n/translations';
 
 export type { Lang };
@@ -7,7 +7,7 @@ export type { Lang };
 @Injectable({ providedIn: 'root' })
 export class LangService {
   private doc = inject(DOCUMENT);
-  private appRef = inject(ApplicationRef);
+  private readonly _refreshAnimations = signal(0);
 
   private readonly _lang = signal<Lang>(this.getInitialLang());
 
@@ -20,12 +20,15 @@ export class LangService {
 
   toggle(): void {
     this.set(this._lang() === 'en' ? 'ar' : 'en');
+    this.doc.defaultView?.scrollTo({
+      top: 0,
+      left: 0,
+    });
   }
 
   set(lang: Lang): void {
     this._lang.set(lang);
     this.applyLang(lang);
-    this.appRef.tick();
   }
 
   translate(key: string): string {
