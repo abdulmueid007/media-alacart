@@ -145,6 +145,12 @@ main {
 .slide-right {
   transform: translateX(-100px);
 }
+[dir='rtl'] .slide-left {
+  transform: translateX(-100px);
+}
+[dir='rtl'] .slide-right {
+  transform: translateX(100px);
+}
 
 .zoom {
   transform: scale(0.8);

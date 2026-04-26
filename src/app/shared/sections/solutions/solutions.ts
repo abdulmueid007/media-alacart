@@ -5,10 +5,18 @@ import { ButtonDirective } from '../../ui/button/button.directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 import { Image } from '../../ui/image/image';
 import { SolutionSection } from '../../../core/model/solution.model';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-solutions-section',
-  imports: [CommonModule, SolutionCard, ButtonDirective, SlideRevealDirective, Image],
+  imports: [
+    CommonModule,
+    SolutionCard,
+    ButtonDirective,
+    SlideRevealDirective,
+    Image,
+    TranslatePipe,
+  ],
   templateUrl: './solutions.html',
   styleUrl: './solutions.css',
 })

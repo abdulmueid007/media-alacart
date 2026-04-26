@@ -1,4 +1,4 @@
-import { Component, DOCUMENT, inject, Renderer2, signal } from '@angular/core';
+import { Component, DOCUMENT, computed, inject, Renderer2, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, catchError, of, tap, switchMap } from 'rxjs';
 
@@ -13,6 +13,7 @@ import { Stats } from '../../shared/sections/app-stats/stats';
 import { Media } from '../../shared/sections/media/media';
 import { LoaderService } from '../../core/services/loader.service';
 import { OrbitalNetwork } from '../../shared/sections/orbital-network/orbital-network';
+import { LangService } from '../../core/services/lang.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ export class Home {
   private loader = inject(LoaderService);
 
   private homeService = inject(HomeService);
+  private lang = inject(LangService);
 
   retryCount = signal(0);
   maxRetries = 3;
@@ -34,13 +36,18 @@ export class Home {
   private renderer = inject(Renderer2);
   private doc = inject(DOCUMENT);
 
+  private trigger = computed(() => ({
+    reload: this.reloadTrigger(),
+    isRtl: this.lang.isRtl(),
+  }));
+
   homeData = toSignal<HomeResponse | null>(
-    toObservable(this.reloadTrigger).pipe(
-      switchMap(() => {
+    toObservable(this.trigger).pipe(
+      switchMap(({ isRtl }) => {
         this.loader.show();
 
         return this.homeService.getHomeData().pipe(
-          map((res) => res?.[0] ?? null),
+          map((res) => res?.[isRtl ? 1 : 0] ?? null),
 
           tap(() => {
             this.loader.hide();

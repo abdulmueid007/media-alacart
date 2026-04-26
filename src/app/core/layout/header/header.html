@@ -16,18 +16,27 @@
           appSlideReveal
           [delay]="i * 200"
         >
-          {{ link.label }}
+          {{ link.labelKey | translate }}
         </a>
       }
     </nav>
 
-    <button appButton class="login-btn">Login</button>
+    <div class="header-actions">
+      <button
+        class="lang-toggle"
+        (click)="lang.toggle()"
+        [attr.aria-label]="lang.isRtl() ? 'English' : 'العربية'"
+      >
+        {{ lang.isRtl() ? 'EN' : 'ع' }}
+      </button>
+      <button appButton class="login-btn">{{ 'header.login' | translate }}</button>
+    </div>
 
     <button
       class="hamburger"
       [class.open]="isMenuOpen()"
       (click)="toggleMenu()"
-      aria-label="Toggle menu"
+      [attr.aria-label]="'header.toggleMenu' | translate"
       [attr.aria-expanded]="isMenuOpen()"
     >
       <span></span>
@@ -55,10 +64,24 @@
           delay: i * 0.08,
         }"
       >
-        {{ link.label }}
+        {{ link.labelKey | translate }}
       </a>
     }
-
-    <button appButton class="ogin-btn mobile-login" (click)="closeMenu()">Login</button>
+    <button
+      ngmMotion
+      [animate]="isMenuOpen() ? 'visible' : 'hidden'"
+      [variants]="itemVariants"
+      (click)="lang.toggle(); closeMenu()"
+      class="mobile-lang"
+      type="button"
+      aria-label="Change language"
+    >
+      <span class="lang">EN</span>
+      <span class="divider" aria-hidden="true">|</span>
+      <span class="lang ar">ع</span>
+    </button>
+    <button appButton class="ogin-btn mobile-login" (click)="closeMenu()">
+      {{ 'header.login' | translate }}
+    </button>
   </nav>
 </header>

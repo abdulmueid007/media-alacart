@@ -33,12 +33,12 @@
         />
 
         <button appButton class="hero-cta" appSlideReveal animation="zoom">
-          Start your journey!
+          {{ 'hero.cta' | translate }}
         </button>
 
         <button appButton class="hero-learn" variant="outlined" appSlideReveal animation="zoom">
           <app-icon [icon]="faPlayCircle" color="var(--color-text)" />
-          Learn More
+          {{ 'hero.learnMore' | translate }}
         </button>
       </div>
     </div>

@@ -2,7 +2,7 @@
   <section class="section">
     <!-- Heading -->
     <div class="heading">
-      <p class="tag">WHY MEDIA ALA CARTE?</p>
+      <p class="tag">{{ 'solutions.tag' | translate }}</p>
 
       <h1>
         {{ solutionData.heading }}
@@ -20,7 +20,9 @@
         <app-image [src]="solutionData.heroImage" alt="heroImage" borderRadius="16px" />
         <div class="overlay">
           <p>{{ solutionData.heroText }}</p>
-          <button appButton variant="primary" textColor="var(--color-surface)">Get Started</button>
+          <button appButton variant="primary" textColor="var(--color-surface)">
+            {{ 'solutions.getStarted' | translate }}
+          </button>
         </div>
       </div>
 

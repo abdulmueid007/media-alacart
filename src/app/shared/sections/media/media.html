@@ -23,8 +23,8 @@
       appSlideReveal
       [animation]="'zoom'"
     >
-      Optimize Your Media Today
-      <app-icon [icon]="faAngleRight" />
+      {{ 'media.optimizeBtn' | translate }}
+      <app-icon [icon]="lang.isRtl() ? faAngleLeft : faAngleRight" />
     </button>
   </div>
 </div>

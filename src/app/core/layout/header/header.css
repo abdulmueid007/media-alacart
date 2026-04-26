@@ -44,6 +44,39 @@
   gap: 2rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--white-20);
+  background: none;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.header.scrolled .lang-toggle {
+  border: 1px solid var(--color-surface);
+  color: var(--color-surface);
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -107,6 +140,12 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:host-context([dir='rtl']) .nav-link::after {
+  left: auto;
+  right: 5px;
+  transform-origin: right;
 }
 
 .nav-link:hover::after,
@@ -192,6 +231,35 @@
     opacity 0.5s ease;
 }
 
+.mobile-lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 36px;
+  padding: 0 16px;
+  width: fit-content;
+  border: 1px solid var(--white-10);
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text);
+}
+
+.mobile-lang .ar {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobile-lang .divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 300;
+  line-height: 1;
+}
+
 .mobile-nav.open {
   transform: translateY(0) scaleY(1);
   opacity: 1;
@@ -214,6 +282,11 @@
   color: var(--color-text);
 }
 
+:host-context([dir='rtl']) .mobile-link:hover {
+  padding-left: 1rem;
+  padding-right: 1.3rem;
+}
+
 .mobile-link.active {
   color: var(--color-brand);
 }
@@ -231,10 +304,10 @@
 }
 
 @media (max-width: 768px) {
-  .nav {
+  .nav,
+  .lang-toggle {
     display: none;
   }
-
   ::ng-deep .login-btn:not(.mobile-login) {
     display: none !important;
   }

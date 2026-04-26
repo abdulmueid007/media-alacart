@@ -5,11 +5,13 @@ import { filter } from 'rxjs';
 import { ButtonDirective } from '../../../shared/ui/button/button.directive';
 import { NgmMotionDirective, Variants } from '@scripttype/ng-motion';
 import { SlideRevealDirective } from '../../directives/slide-reveal.directive';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { LangService } from '../../services/lang.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ButtonDirective, NgmMotionDirective, SlideRevealDirective],
+  imports: [RouterModule, ButtonDirective, NgmMotionDirective, SlideRevealDirective, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -20,17 +22,18 @@ export class Header {
   };
 
   readonly navLinks = [
-    { label: 'The Platform', path: '/' },
-    { label: 'Features', path: '/features' },
-    { label: 'Benefits', path: '/benefits' },
-    { label: 'Request a Demo', path: '/demo' },
-    { label: 'Contact Us', path: '/contact' },
-    { label: 'About Us', path: '/about' },
+    { labelKey: 'nav.platform', path: '/' },
+    { labelKey: 'nav.features', path: '/features' },
+    { labelKey: 'nav.benefits', path: '/benefits' },
+    { labelKey: 'nav.demo', path: '/demo' },
+    { labelKey: 'nav.contact', path: '/contact' },
+    { labelKey: 'nav.about', path: '/about' },
   ];
 
   isMenuOpen = signal(false);
   isScrolled = false;
 
+  lang = inject(LangService);
   private router = inject(Router);
 
   constructor() {
@@ -60,7 +63,6 @@ export class Header {
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event): void {
     const target = event.target as HTMLElement;
-
     if (!target.closest('.header')) {
       this.isMenuOpen.set(false);
     }

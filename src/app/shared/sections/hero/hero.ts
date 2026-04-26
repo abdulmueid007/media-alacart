@@ -7,6 +7,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ButtonDirective } from '../../ui/button/button.directive';
 import { SlideRevealDirective } from '../../../core/directives/slide-reveal.directive';
 import { HeroBanner } from '../../../core/model/hero-banner.model';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-hero',
@@ -17,6 +18,7 @@ import { HeroBanner } from '../../../core/model/hero-banner.model';
     NgxSkeletonLoaderModule,
     ButtonDirective,
     SlideRevealDirective,
+    TranslatePipe,
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.css',

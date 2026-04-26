@@ -28,6 +28,10 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  /* Pin to LTR so the duplicate-copy loop always works correctly,
+     regardless of the document's dir attribute. Arabic glyphs still
+     render as RTL inside an LTR container. */
+  direction: ltr;
 }
 
 .scroll-content {

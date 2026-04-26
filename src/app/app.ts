@@ -5,6 +5,7 @@ import { Header } from './core/layout/header/header';
 import { Footer } from './core/layout/footer/footer';
 import { Loader } from './shared/ui/loader/loader';
 import { LoaderService } from './core/services/loader.service';
+import { LangService } from './core/services/lang.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,4 +23,5 @@ import { LoaderService } from './core/services/loader.service';
 })
 export class App {
   loader = inject(LoaderService);
+  lang = inject(LangService);
 }

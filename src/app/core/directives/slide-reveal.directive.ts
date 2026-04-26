@@ -36,6 +36,7 @@ export class SlideRevealDirective implements OnInit, OnDestroy {
       ([entry]) => {
         if (entry.isIntersecting) {
           nativeEl.classList.add('aos-animate');
+          nativeEl.classList.remove(this.animation);
 
           if (this.once) {
             this.observer.unobserve(nativeEl);
