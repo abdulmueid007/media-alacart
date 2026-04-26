@@ -7,7 +7,6 @@ export type { Lang };
 @Injectable({ providedIn: 'root' })
 export class LangService {
   private doc = inject(DOCUMENT);
-  private readonly _refreshAnimations = signal(0);
 
   private readonly _lang = signal<Lang>(this.getInitialLang());
 
@@ -20,10 +19,7 @@ export class LangService {
 
   toggle(): void {
     this.set(this._lang() === 'en' ? 'ar' : 'en');
-    this.doc.defaultView?.scrollTo({
-      top: 0,
-      left: 0,
-    });
+    window.location.reload();
   }
 
   set(lang: Lang): void {
