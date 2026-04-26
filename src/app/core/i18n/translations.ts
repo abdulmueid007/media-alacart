@@ -37,6 +37,11 @@ const EN = {
   'services.heading': 'Our Services',
   // Media
   'media.optimizeBtn': 'Optimize Your Media Today',
+  // Error
+  'error.title': 'Something went wrong.',
+  'error.tryAgain': 'Try Again',
+  'error.retryLimit': 'Retry limit reached',
+  'error.attempts': 'Attempts',
 } as const;
 
 const AR: Record<keyof typeof EN, string> = {
@@ -76,6 +81,11 @@ const AR: Record<keyof typeof EN, string> = {
   'services.heading': 'خدماتنا',
   // Media
   'media.optimizeBtn': 'حسّن وسائل إعلامك اليوم',
+  // Error
+  'error.title': 'حدث خطأ ما.',
+  'error.tryAgain': 'حاول مرة أخرى',
+  'error.retryLimit': 'تم الوصول إلى الحد الأقصى للمحاولات',
+  'error.attempts': 'المحاولات',
 };
 
 export const TRANSLATIONS: Record<Lang, Record<string, string>> = { en: EN, ar: AR };

@@ -13,11 +13,12 @@ import { Media } from '../../shared/sections/media/media';
 import { LoaderService } from '../../core/services/loader.service';
 import { OrbitalNetwork } from '../../shared/sections/orbital-network/orbital-network';
 import { LangService } from '../../core/services/lang.service';
+import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, CrossBanner, OurServices, Solutions, Stats, Media, OrbitalNetwork],
+  imports: [Hero, CrossBanner, OurServices, Solutions, Stats, Media, OrbitalNetwork, TranslatePipe],
   templateUrl: './home.html',
 })
 export class Home {

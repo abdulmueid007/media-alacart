@@ -53,3 +53,8 @@ p {
   bottom: 5%;
   right: 5%;
 }
+
+:host-context([dir='rtl']) .button-wrapper {
+  left: 5%;
+  right: unset;
+}

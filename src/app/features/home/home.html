@@ -13,14 +13,18 @@
     <app-media [mediaInfo]="home.mediaInfo" />
   } @else {
     <div class="absolute-center error-container">
-      <h2>Something went wrong.</h2>
+      <h2>{{ 'error.title' | translate }}</h2>
 
       <button (click)="retry()" [disabled]="retryCount() >= maxRetries">
-        {{ retryCount() >= maxRetries ? 'Retry limit reached' : 'Try Again' }}
+        {{
+          retryCount() >= maxRetries
+            ? ('error.retryLimit' | translate)
+            : ('error.tryAgain' | translate)
+        }}
       </button>
 
       @if (retryCount() > 0) {
-        <p>Attempts: {{ retryCount() }} / {{ maxRetries }}</p>
+        <p>{{ 'error.attempts' | translate }}: {{ retryCount() }} / {{ maxRetries }}</p>
       }
     </div>
   }

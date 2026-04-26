@@ -19,3 +19,11 @@
 .icon-btn-wrapper:active {
   transform: rotate(-45deg) scale(0.95);
 }
+
+.icon-btn-wrapper.rtl {
+  transform: rotate(45deg);
+}
+
+.icon-btn-wrapper.rtl:active {
+  transform: rotate(45deg) scale(0.95);
+}
